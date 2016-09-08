@@ -14,26 +14,16 @@
         </h2>
         <hr>
       </div>
+      {% for member in object_list %}
       <div class="col-sm-4 text-center">
-        <a href ="{% url 'cgapp:members' %}">
+        <a href ="{% url 'cgapp:members' member.id %}">
         <img class="img-responsive" src="http://placehold.it/750x450" alt="">
       </a>
-        <h3>John Smith
-          <small>Job Title</small>
+      <h3>{{ member.last_name}}
+        <small>{{ member.first_name }}</small>
         </h3>
       </div>
-      <div class="col-sm-4 text-center">
-        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-        <h3>John Smith
-          <small>Job Title</small>
-        </h3>
-      </div>
-      <div class="col-sm-4 text-center">
-        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-        <h3>John Smith
-          <small>Job Title</small>
-        </h3>
-      </div>
+      {% endfor %}
       <div class="clearfix"></div>
     </div>
   </div>

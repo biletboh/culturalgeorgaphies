@@ -1,15 +1,16 @@
 from django.shortcuts import render
 
-from django.views.generic import View, DetailView, TemplateView 
+from django.views.generic import View, DetailView, ListView, TemplateView 
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from cgapp.models import Member 
+from cgapp.models import Member, News
 
 from django.contrib.auth.models import User
 
 #News page
-class News(TemplateView):
+class NewsPage(ListView):
+    model = News
     template_name = 'cgapp/news.html'
 
 #About page
@@ -17,11 +18,13 @@ class About(TemplateView):
     template_name = 'cgapp/about.html'
 
 #Team page
-class Team(TemplateView):
+class Team(ListView):
+    model = Member
     template_name = 'cgapp/team.html'
 
 #Member page
-class Members(TemplateView):
+class Members(DetailView):
+    model = Member
     template_name = 'cgapp/members.html'
 
 #Projects page
@@ -40,8 +43,12 @@ class Gallery(TemplateView):
 ###Dashboard 
 
 #Create News page
-class CreateNews(TemplateView):
+class CreateNews(CreateView):
+    model = News 
+    fields = ['name', 'body']
     template_name = 'cgapp/create-news.html'
+    success_url = '/dashboard/'
+    
 
 #Delete News page
 class DeleteNews(TemplateView):
@@ -54,9 +61,9 @@ class EditNews(TemplateView):
 #Create Member page/Dashboard
 class CreateMember(CreateView):
     model = Member
-    fields = ['name', 'description']
+    fields = ['first_name', 'last_name', 'description']
     template_name = 'cgapp/create-member.html'
-    print('hello')
+    success_url = '/dashboard/'
 
 #Delete Member page
 class DeleteMember(DeleteView):

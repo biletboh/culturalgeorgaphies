@@ -1,0 +1,4 @@
+Django==1.10
+django-betterforms==1.1.4
+pytz==2016.6.1
+six==1.10.0

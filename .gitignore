@@ -1,0 +1,8 @@
+venv
+*.pyc
+*.swp
+*.sqlite3
+*.settings.ini
+*.key
+*.crt
+runserver

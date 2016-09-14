@@ -26,7 +26,7 @@ conf.read(os.path.join(BASE_DIR, 'settings.ini'))
 SECRET_KEY = '*)10&!ms&t(=$bi=1sr4m8saf6vmdp@4@nsydiy1*kj1wf^yzu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = conf.getboolean('cultgeo', 'debug', fallback = True)
+DEBUG = conf.getboolean('cultg', 'debug', fallback = True)
 
 ALLOWED_HOSTS = []
 

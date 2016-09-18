@@ -28,7 +28,7 @@ SECRET_KEY = '*)10&!ms&t(=$bi=1sr4m8saf6vmdp@4@nsydiy1*kj1wf^yzu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = conf.getboolean('cultg', 'debug', fallback = True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

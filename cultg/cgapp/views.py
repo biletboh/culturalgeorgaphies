@@ -4,12 +4,17 @@ from django.views.generic import View, DetailView, ListView, TemplateView
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from cgapp.models import Member, News
+from cgapp.models import Member, News, Project
 
 from django.contrib.auth.models import User
 
+#Blog
+class Blog(ListView):
+    model = News
+    template_name = 'cgapp/blog.html'
+
 #News page
-class NewsPage(ListView):
+class NewsPage(DetailView):
     model = News
     template_name = 'cgapp/news.html'
 
@@ -28,11 +33,13 @@ class Members(DetailView):
     template_name = 'cgapp/members.html'
 
 #Projects page
-class Projects(TemplateView):
+class Projects(ListView):
+    model = Project
     template_name = 'cgapp/projects.html'
 
 #Project Detail page
-class ProjectDetail(TemplateView):
+class ProjectDetails(DetailView):
+    model = Project
     template_name = 'cgapp/project-page.html'
 
 #Gallery page 
@@ -76,4 +83,23 @@ class EditMember(UpdateView):
     fields = ['name', 'description']
     template_name = 'cgapp/edit-member.html'
     success_url = reverse_lazy('cgapp:members')
+
+#Create Project page/Dashboard
+class CreateProject(CreateView):
+    model = Project 
+    fields = ['name', 'category', 'description']
+    template_name = 'cgapp/create-project.html'
+    success_url = '/dashboard/'
+
+#Delete Member page
+class DeleteProject(DeleteView):
+    model = Project 
+    template_name = 'cgapp/delete-project.html'
+
+#Edit Member Page
+class EditProject(UpdateView):
+    model = Project 
+    fields = ['name', 'description']
+    template_name = 'cgapp/edit-project.html'
+    success_url = reverse_lazy('cgapp:projects')
 

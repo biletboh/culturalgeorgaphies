@@ -1,0 +1,46 @@
+{% extends "cgapp/base.html" %}
+
+{% block content %}
+{% load static %}
+{% load tz %}
+
+<div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Company
+                        <strong>blog</strong>
+                    </h2>
+                    <hr>
+                </div>
+                {% for post in object_list %}
+                <div class="col-lg-12 text-center">
+
+              <img class="img-responsive" src="http://placekitten.com/1200/600" alt="">
+                    <h2>{{ post.name }}
+                        <br>
+                        {% timezone "Europe/Kiev" %}
+                        <small>{{ post.pub_date }}</small>
+                        {% endtimezone %}
+                    </h2>
+                    <p class="dot-ellipsis dot-height-90">{{ post.body }}</p>
+                    <a href="{% url 'cgapp:news' post.id %}" class="btn btn-default btn-lg">Read More</a>
+                    <hr>
+                  </div>
+                  {% endfor %}
+                  <div class="col-lg-12 text-center">
+                    <ul class="pager">
+                      <li class="previous"><a href="#">&larr; Older</a>
+                      </li>
+                      <li class="next"><a href="#">Newer &rarr;</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {% endblock %}

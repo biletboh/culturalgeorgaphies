@@ -17,4 +17,5 @@ class Member(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
+    category = models.CharField(max_length=200)
     description = models.CharField(max_length=2500)

@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Business Casual - Start Bootstrap Theme</title>
+<title>Культурні Географії</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.css' %}" />
@@ -56,7 +56,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-        <a href="{% url 'cgapp:news' %}">Новини</a>
+        <a href="{% url 'cgapp:blog' %}">Блог</a>
         </li>
         <li>
         <a href="{% url 'cgapp:about' %}">Про нас</a>
@@ -68,7 +68,6 @@
         <a href="{% url 'cgapp:projects' %}">Проекти</a>
         </li>
         <li>
-        <a href="{% url 'cgapp:gallery' %}">Галерея</a>
         </li>
       </ul>
     </div>
@@ -93,8 +92,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-
-
+<!-- ellipsis -->
+<script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
 <!-- Script to Activate the Carousel -->
 <script>
 $('.carousel').carousel({

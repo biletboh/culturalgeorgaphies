@@ -15,7 +15,7 @@
         <hr>
       </div>
       <div class="row no-gutter popup-gallery">
-        {% for project in object_list %}
+        {% for project in object_list reversed %}
         <div class="col-lg-4 col-sm-4 text-center">
           <a href ="{% url 'cgapp:project-page' project.id %}" class="portfolio-box">
             <img class="img-responsive" src="http://placehold.it/750x450" alt="">

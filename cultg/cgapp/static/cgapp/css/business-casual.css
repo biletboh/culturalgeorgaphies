@@ -20,7 +20,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -109,7 +109,22 @@ footer {
 
 footer p {
     margin: 0;
-    padding: 50px 0;
+    padding: 15px 0;
+}
+
+.logo-partners {
+  padding: 30px 0;
+}
+.logo-partners p {
+  font-size: 1.25em;
+  line-height: 1.6;
+  color: #000;
+}
+.logo-partners li {
+  padding: 0 15px;
+}
+.footer-partners  {
+  background: rgba(255,255,255,0.9)
 }
 
 @media screen and (min-width:768px) {
@@ -119,7 +134,7 @@ footer p {
         padding: 30px 0 10px;
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 5em;
         font-weight: 700;
         line-height: normal;
@@ -255,3 +270,4 @@ footer p {
     font-size: 22px;
   }
 }
+

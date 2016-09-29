@@ -1,12 +1,13 @@
 from django.shortcuts import render
 
-from django.views.generic import View, DetailView, ListView, TemplateView 
+from django.views.generic import View, DetailView, ListView, FormView, TemplateView 
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from cgapp.models import Member, News, Project
 
 from django.contrib.auth.models import User
+from cgapp.forms import ProjectForm 
 
 #Blog
 class Blog(ListView):
@@ -85,11 +86,16 @@ class EditMember(UpdateView):
     success_url = reverse_lazy('cgapp:members')
 
 #Create Project page/Dashboard
-class CreateProject(CreateView):
-    model = Project 
-    fields = ['name', 'category', 'description']
+class CreateProject(FormView):
+    #model = Project 
+    #fields = ['name', 'category', 'description']
+    form_class = ProjectForm
     template_name = 'cgapp/create-project.html'
     success_url = '/dashboard/'
+    def form_valid(self, form):
+        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'])
+        project.save()
+        return super(CreateProject, self).form_valid(form)
 
 #Delete Member page
 class DeleteProject(DeleteView):

@@ -236,6 +236,9 @@ footer p {
   -moz-transition: all 0.35s;
   transition: all 0.35s;
 }
+.green {
+  background-color: rgba(149, 219, 58, 0.9) !important;
+}
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
   width: 100%;
   text-align: center;

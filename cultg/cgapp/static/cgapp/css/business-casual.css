@@ -273,4 +273,6 @@ footer p {
     font-size: 22px;
   }
 }
-
+.blog-image {
+  margin: auto;
+}

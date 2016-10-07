@@ -35,7 +35,8 @@ THUMBNAIL_ALIASES = {
     '': {
         'small': {'size':(60, 60), 'crop': True},
         'medium': {'size': (750, 450), 'crop': True},
-        'large': {'size': (1200, 600), 'crop': True},
+        'large': {'size': (1000, 450), 'crop': True},
+        'extra_large': {'size': (1200, 600), 'crop': True},
         },
 }
 # Application definition

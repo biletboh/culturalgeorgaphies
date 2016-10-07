@@ -19,7 +19,7 @@
                 {% for post in object_list reversed %}
                 <div class="col-lg-12 text-center">
 
-                  <img class="img-responsive" src="{{ post.picture.large.url }}" alt="{{ post.picture.name }}">
+                  <img class="img-responsive blog-image" src="{{ post.picture.large.url }}" alt="{{ post.picture.name }}">
                     <h2>{{ post.name }}
                         <br>
                         {% timezone "Europe/Kiev" %}

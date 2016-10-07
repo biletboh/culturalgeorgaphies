@@ -53,7 +53,7 @@ class Gallery(TemplateView):
 #Create News page
 class CreateNews(CreateView):
     model = News 
-    fields = ['name', 'body']
+    fields = ['name', 'body', 'picture']
     template_name = 'cgapp/create-news.html'
     success_url = '/dashboard/'
     
@@ -69,7 +69,7 @@ class EditNews(TemplateView):
 #Create Member page/Dashboard
 class CreateMember(CreateView):
     model = Member
-    fields = ['first_name', 'last_name', 'description']
+    fields = ['first_name', 'last_name', 'description', 'avatar']
     template_name = 'cgapp/create-member.html'
     success_url = '/dashboard/'
 
@@ -93,8 +93,9 @@ class CreateProject(FormView):
     template_name = 'cgapp/create-project.html'
     success_url = '/dashboard/'
     def form_valid(self, form):
-        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'])
+        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
+        form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
 
 #Delete Member page

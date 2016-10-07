@@ -1,4 +1,6 @@
 Django==1.10
 django-betterforms==1.1.4
+easy-thumbnails==2.3
+Pillow==3.4.1
 pytz==2016.6.1
 six==1.10.0

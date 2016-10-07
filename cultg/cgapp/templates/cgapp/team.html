@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+{% load thumbnail %}
 
 <div class="container">
 
@@ -17,7 +18,7 @@
       {% for member in object_list %}
       <div class="col-sm-4 text-center">
         <a href ="{% url 'cgapp:members' member.id %}">
-        <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <img class="img-responsive" src="{{ member.avatar.medium.url }}" alt="{{ member.avatar.name}}">
       </a>
       <h3>{{ member.last_name}}
         <small>{{ member.first_name }}</small>

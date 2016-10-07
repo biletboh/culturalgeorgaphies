@@ -30,7 +30,14 @@ DEBUG = conf.getboolean('cultg', 'debug', fallback = True)
 
 ALLOWED_HOSTS = ['*']
 
-
+#Tumnails settings 
+THUMBNAIL_ALIASES = {
+    '': {
+        'small': {'size':(60, 60), 'crop': True},
+        'medium': {'size': (750, 450), 'crop': True},
+        'large': {'size': (1200, 600), 'crop': True},
+        },
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'easy_thumbnails',
+    'django_file_form',
+    'django_file_form.ajaxuploader',
 ]
 
 MIDDLEWARE = [

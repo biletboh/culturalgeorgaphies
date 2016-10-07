@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+{% load thumbnail %}
 
 <div class="container">
 
@@ -15,7 +16,7 @@
         <hr>
       </div>
       <div class="col-md-6">
-        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+        <img class="img-responsive img-border-left" src="{{ object.picture.medium.url }}" alt="{{ object.picture.name }}">
       </div>
       <div class="col-md-6">
         <p> {{ object.body}} </p>

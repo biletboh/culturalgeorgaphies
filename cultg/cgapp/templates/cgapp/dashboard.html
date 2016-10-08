@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="{% url 'cgapp:create-member' %}">SB Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -75,7 +75,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                  <li id="default" class="active"> 
                     <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Додати Учасника</a>
                     </li>
                     <li>
@@ -106,6 +106,27 @@
     <!-- File Uploader -->
 <script src="{% static 'cgapp/js/fileuploader.js' %}"></script>
 <script src="{% static 'cgapp/js/file_form.js' %}"></script>
+<script>
+$(function(){
+    function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+    return str.substr(0, str.length - 1);
+    }
+    return str;
+    }
+
+    var url = window.location.pathname;  
+    var activePage = stripTrailingSlash(url);
+        $('.nav li a').each(function(){  
+      var currentPage = stripTrailingSlash($(this).attr('href'));
+      if (activePage == currentPage) {
+
+      $('#default').removeClass('active');
+      $(this).parent().addClass('active'); 
+      }; 
+            });
+    });
+</script>
 </body>
 
 </html>

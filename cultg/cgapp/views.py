@@ -1,13 +1,14 @@
 from django.shortcuts import render
 
 from django.views.generic import View, DetailView, ListView, FormView, TemplateView 
+from django.views.generic.edit import FormMixin
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from cgapp.models import Member, News, Project
 
 from django.contrib.auth.models import User
-from cgapp.forms import ProjectForm 
+from cgapp.forms import NewsForm, MemberForm, ProjectForm 
 
 #Blog
 class Blog(ListView):
@@ -51,13 +52,16 @@ class Gallery(TemplateView):
 ###Dashboard 
 
 #Create News page
-class CreateNews(CreateView):
-    model = News 
-    fields = ['name', 'body', 'picture']
-    template_name = 'cgapp/create-news.html'
-    success_url = '/dashboard/'
+class CreateNews(FormView):
+    form_class = NewsForm 
+    template_name = 'cgapp/create.html'
+    success_url = '/dashboard/news/add/'
+    def form_valid(self, form):
+        news = News(name=form.cleaned_data['name'], body=form.cleaned_data['body'], picture=form.cleaned_data['picture'])
+        news.save()
+        form.delete_temporary_files()
+        return super(CreateNews, self).form_valid(form)
     
-
 #Delete News page
 class DeleteNews(TemplateView):
     template_name = 'cgapp/delete-news.html'
@@ -67,11 +71,16 @@ class EditNews(TemplateView):
     template_name = 'cgapp/edit-news.html'
 
 #Create Member page/Dashboard
-class CreateMember(CreateView):
-    model = Member
-    fields = ['first_name', 'last_name', 'description', 'avatar']
-    template_name = 'cgapp/create-member.html'
-    success_url = '/dashboard/'
+class CreateMember(FormView):
+    form_class = MemberForm 
+    template_name = 'cgapp/create.html'
+    success_url = '/dashboard/members/add/'
+    def form_valid(self, form):
+        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], description=form.cleaned_data['description'], avatar=form.cleaned_data['avatar'])
+        members.save()
+        form.delete_temporary_files()
+        return super(CreateMember, self).form_valid(form)
+    
 
 #Delete Member page
 class DeleteMember(DeleteView):
@@ -87,10 +96,8 @@ class EditMember(UpdateView):
 
 #Create Project page/Dashboard
 class CreateProject(FormView):
-    #model = Project 
-    #fields = ['name', 'category', 'description']
     form_class = ProjectForm
-    template_name = 'cgapp/create-project.html'
+    template_name = 'cgapp/create.html'
     success_url = '/dashboard/'
     def form_valid(self, form):
         project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])

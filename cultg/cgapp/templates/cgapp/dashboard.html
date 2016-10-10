@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% url 'cgapp:create-member' %}">SB Admin</a>
+                <a class="navbar-brand" href="{% url 'cgapp:create-news' %}">SB Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -74,17 +74,18 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                  <li id="default" class="active"> 
-                    <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Додати Учасника</a>
-                    </li>
-                    <li>
-                    <a href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Додати Новину</a>
-                    </li>
-                    <li>
-                    <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>Додати Проект</a>
-                    </li>
-                                    </ul>
+              <ul class="nav navbar-nav side-nav">
+                <li id="default" class="active"> 
+                <a href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Додати Новину</a>
+                </li>
+                <li>
+                <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>Додати Проект</a>
+                </li>
+                <li>
+                <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Додати Учасника</a>
+                </li>
+
+              </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>

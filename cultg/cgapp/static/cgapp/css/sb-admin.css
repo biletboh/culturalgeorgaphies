@@ -132,13 +132,17 @@ ul.alert-dropdown {
     .side-nav>li>a {
         width: 225px;
     }
-
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
         background-color: #000 !important;
     }
 }
+
+.side-nav .active {
+        outline: none;
+        background-color: #000 !important;
+    }
 
 .side-nav>li>ul {
     padding: 0;

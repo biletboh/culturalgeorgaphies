@@ -18,7 +18,7 @@ urlpatterns = [
         url(r'^gallery/$', views.Gallery.as_view(), name = 'gallery'),
         url(r'^team/member/(?P<pk>[0-9]+)/$', views.Members.as_view(), name = 'members'),
 #Dashboard pages
-        url(r'^dashboard/$', views.CreateMember.as_view(), name = 'create-member'),
+        url(r'^dashboard/$', views.CreateNews.as_view(), name = 'create-news'),
         url('dashboard/members/add$', views.CreateMember.as_view(), name = 'create-member'),
         url('dashboard/members/(?P<pk>[0-9]+)/$', views.EditMember.as_view(), name = 'edit-member'),
         url('dashboard/members/(?P<pk>[0-9]+)/delete$', views.DeleteMember.as_view(), name = 'delete-member'),

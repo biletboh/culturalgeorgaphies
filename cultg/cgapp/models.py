@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from easy_thumbnails.fields import ThumbnailerImageField
+from tinymce.models import HTMLField
 # Create your models here.
 
 class News(models.Model):

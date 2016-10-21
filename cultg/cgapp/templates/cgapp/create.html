@@ -1,10 +1,12 @@
 {% extends "cgapp/dashboard.html" %}
 
+{% block head %}
+{% endblock %}
+
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
-
-<form action="" enctype="multipart/form-data" method="post">
+<form action="" name="create-form" enctype="multipart/form-data" method="post">
  {% csrf_token %}
   <div class="row">
     <div class="col-md-12">
@@ -22,14 +24,16 @@
             <div class="col-md-2">
             {{ field.label_tag }}
           </div>
-          <div class="col-md-8">
+          <div class="col-md-10">
             {% if fieldset.name == "main" %}
             {{ field|attr:"class:form-control" }}
             {% else %}
             {{ field }}
             {% endif %}
           </div>
-          <div class="col-md-2">
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-2">
             {{ field.errors }}
           </div>
         </div>
@@ -45,6 +49,7 @@
     </div>
   </div>
 </form>
+
 
 {% include 'cgapp/upload_template.html' %}
 <script type="text/javascript">

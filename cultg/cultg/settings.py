@@ -39,6 +39,7 @@ THUMBNAIL_ALIASES = {
         'extra_large': {'size': (1200, 600), 'crop': True},
         },
 }
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'django_file_form',
     'django_file_form.ajaxuploader',
     'widget_tweaks',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -191,3 +193,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+#TinyMCE config
+TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+        'plugins': "table,spellchecker,paste,searchreplace",
+        'theme': "advanced",
+        'cleanup_on_startup': True,
+        'custom_undo_redo_levels': 10,
+        }
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True

@@ -6,6 +6,17 @@
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
+{% if messages %}
+<div class="message-top">
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    {{ message }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
 <form action="" name="create-form" enctype="multipart/form-data" method="post">
  {% csrf_token %}
   <div class="row">

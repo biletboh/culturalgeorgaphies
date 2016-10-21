@@ -24,4 +24,5 @@ urlpatterns = [
         url('dashboard/members/(?P<pk>[0-9]+)/delete$', views.DeleteMember.as_view(), name = 'delete-member'),
         url('dashboard/news/add/$', views.CreateNews.as_view(), name = 'create-news'),
         url('dashboard/projects/add/$', views.CreateProject.as_view(), name = 'create-project'),
+        url('dashboard/partner/add/$', views.CreatePartner.as_view(), name = 'create-partner'),
         ]

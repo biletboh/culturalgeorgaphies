@@ -5,10 +5,12 @@ from django.views.generic.edit import FormMixin
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from cgapp.models import Member, News, Project
+from cgapp.models import Member, News, Project, Partner
 
 from django.contrib.auth.models import User
-from cgapp.forms import NewsForm, MemberForm, ProjectForm 
+from cgapp.forms import NewsForm, MemberForm, ProjectForm, PartnerForm 
+
+from django.contrib.messages.views import SuccessMessageMixin
 
 #Blog
 class Blog(ListView):
@@ -70,7 +72,7 @@ class DeleteNews(TemplateView):
 class EditNews(TemplateView):
     template_name = 'cgapp/edit-news.html'
 
-#Create Member page/Dashboard
+#Create Member page
 class CreateMember(FormView):
     form_class = MemberForm 
     template_name = 'cgapp/create.html'
@@ -94,7 +96,7 @@ class EditMember(UpdateView):
     template_name = 'cgapp/edit-member.html'
     success_url = reverse_lazy('cgapp:members')
 
-#Create Project page/Dashboard
+#Create Project page
 class CreateProject(FormView):
     form_class = ProjectForm
     template_name = 'cgapp/create.html'
@@ -105,15 +107,29 @@ class CreateProject(FormView):
         form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
 
-#Delete Member page
+#Delete Project page
 class DeleteProject(DeleteView):
     model = Project 
     template_name = 'cgapp/delete-project.html'
 
-#Edit Member Page
+#Edit Project Page
 class EditProject(UpdateView):
     model = Project 
     fields = ['name', 'description']
     template_name = 'cgapp/edit-project.html'
     success_url = reverse_lazy('cgapp:projects')
+
+#Create Partner Icon
+class CreatePartner(SuccessMessageMixin, FormView):
+    form_class = PartnerForm 
+    template_name = 'cgapp/create.html'
+    success_url = '/dashboard/partner/add/'
+    success_message = "Partner was created successfully"
+    def form_valid(self, form):
+        partner = Partner(name=form.cleaned_data['name'], image=form.cleaned_data['image'])
+        partner.save()
+        form.delete_temporary_files()
+        return super(CreatePartner, self).form_valid(form)
+
+
 

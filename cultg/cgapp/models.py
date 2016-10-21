@@ -24,3 +24,7 @@ class Project(models.Model):
     category = models.CharField(max_length=200)
     description = models.CharField(max_length=2500)
     image = ThumbnailerImageField(upload_to='photos/projects', blank=True) 
+
+class Partner(models.Model):
+    name = models.CharField(max_length=200)
+    image = ThumbnailerImageField(upload_to='photos/projects', blank=True) 

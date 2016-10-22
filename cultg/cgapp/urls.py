@@ -24,7 +24,8 @@ urlpatterns = [
         url('dashboard/members/(?P<pk>[0-9]+)/delete$', views.DeleteMember.as_view(), name = 'delete-member'),
         url('dashboard/news/add/$', views.CreateNews.as_view(), name = 'create-news'),
         url('dashboard/news/list/$', views.NewsEditList.as_view(), name = 'edit-news-list'),
-        url(r'^dashboard/news/delete/(?P<pk>\d+)/$', views.DeleteNews.as_view(), name='delete_news'),
+        url(r'^dashboard/news/edit/(?P<pk>\d+)/$', views.EditNews.as_view(), name='edit-news'),
+        url(r'^dashboard/news/delete/(?P<pk>\d+)/$', views.DeleteNews.as_view(), name='delete-news'),
         url('dashboard/projects/add/$', views.CreateProject.as_view(), name = 'create-project'),
         url('dashboard/partner/add/$', views.CreatePartner.as_view(), name = 'create-partner'),
         ]

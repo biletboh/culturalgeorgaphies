@@ -12,7 +12,9 @@ from cgapp.forms import NewsForm, MemberForm, ProjectForm, PartnerForm
 
 from django.contrib.messages.views import SuccessMessageMixin
 
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseForbidden
+from django.views.generic.detail import SingleObjectMixin
 
 #Blog
 class Blog(ListView):
@@ -78,8 +80,37 @@ class DeleteNews(DeleteView):
     success_url = 'dashboard/news/list/' 
 
 #Edit News Page
-class EditNews(TemplateView):
-    template_name = 'cgapp/edit-news.html'
+class DisplayNews(DetailView):
+    template_name = 'cgapp/edit.html'
+    model = News
+    def get_context_data(self, **kwargs):
+        context = super(DisplayNews, self).get_context_data(**kwargs)
+        context['form'] = NewsForm()
+        return context
+
+class UpdateNews(SingleObjectMixin, FormView):
+    form_class = NewsForm 
+    model = News 
+
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden()
+        self.object = self.get_object()
+        return super(UpdateNews, self).post(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('cgapp:edit-news', kwargs={'pk': self.object.pk})
+
+class EditNews(View):
+    def get(self, request, *args, **kwargs):
+        view = DisplayNews.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = UpdateNews.as_view()
+        return view(request, *args, **kwargs)
+
+
 
 #Create Member page
 class CreateMember(FormView):

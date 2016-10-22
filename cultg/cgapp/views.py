@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.views.generic import View, DetailView, ListView, FormView, TemplateView 
+from django.views.generic import View, DetailView, ListView, FormView, TemplateView, DeleteView 
 from django.views.generic.edit import FormMixin
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from cgapp.forms import NewsForm, MemberForm, ProjectForm, PartnerForm 
 
 from django.contrib.messages.views import SuccessMessageMixin
+
+from django.urls import reverse_lazy
 
 #Blog
 class Blog(ListView):
@@ -63,10 +65,17 @@ class CreateNews(FormView):
         news.save()
         form.delete_temporary_files()
         return super(CreateNews, self).form_valid(form)
-    
+#Edit list of News
+
+class NewsEditList(ListView):
+    model = News  
+    template_name = 'cgapp/editlist.html'
+
 #Delete News page
-class DeleteNews(TemplateView):
-    template_name = 'cgapp/delete-news.html'
+class DeleteNews(DeleteView):
+    model = News
+    template_name = 'cgapp/editlist.html'
+    success_url = 'dashboard/news/list/' 
 
 #Edit News Page
 class EditNews(TemplateView):

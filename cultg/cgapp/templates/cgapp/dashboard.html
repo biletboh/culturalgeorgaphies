@@ -19,19 +19,20 @@
 <!-- Custom CSS -->
 
 <link href="{% static 'cgapp/css/sb-admin.css' %}" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<!-- File Uploader Css -->
-<link rel="stylesheet" href="{% static 'cgapp/css/fine-uploader.css' %}">
 
 <!-- bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<!-- File Uploader -->
+<script src="{% static 'ajaxuploader/js/fileuploader.js' %}"></script>
+<script src="{% static 'file_form/file_form.js' %}"></script>
+
+<!-- File Uploader Css -->
+<link rel="stylesheet" href="{% static 'cgapp/css/fine-uploader.css' %}">
+
+
 {% block head %}
 {% endblock %}
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -129,9 +130,6 @@ setSelectedPageNav();
 </script>
 
 <!-- /#wrapper -->
-<!-- File Uploader -->
-<script src="{% static 'cgapp/js/fileuploader.js' %}"></script>
-<script src="{% static 'cgapp/js/file_form.js' %}"></script>
 </body>
 
 </html>

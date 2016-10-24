@@ -203,24 +203,73 @@ class EditMember(View):
 class CreateProject(FormView):
     form_class = ProjectForm
     template_name = 'cgapp/create.html'
-    success_url = '/dashboard/'
+    success_url = '/dashboard/projects/add/'
     def form_valid(self, form):
         project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
         form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
+    
+#Edit list of Projects 
+class ProjectsEditList(ListView):
+    model = Project 
+    template_name = 'cgapp/editlist.html'
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsEditList, self).get_context_data(**kwargs)
+        context['edit_url'] = 'cgapp:edit-project'
+        context['delete_url'] = 'cgapp:delete-project'
+        return context
 
 #Delete Project page
 class DeleteProject(DeleteView):
     model = Project 
     template_name = 'cgapp/delete-project.html'
+    success_url = '/dashboard/projects/list/'
 
 #Edit Project Page
-class EditProject(UpdateView):
+class DisplayProject(DetailView):
+    template_name = 'cgapp/edit.html'
     model = Project 
-    fields = ['name', 'description']
-    template_name = 'cgapp/edit-project.html'
-    success_url = reverse_lazy('cgapp:projects')
+    def get_context_data(self, **kwargs):
+        context = super(DisplayProject, self).get_context_data(**kwargs)
+        context['form'] = ProjectForm()
+        return context
+
+class UpdateProject(SingleObjectMixin, FormView):
+    form_class = ProjectForm 
+    model = Project
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(UpdateProject, self).post(request, *args, **kwargs)
+    
+    def form_valid(self, form):
+        #obtain current object 
+        params = { 'pk': form.cleaned_data['object_id'] }
+        project = Project.objects.get(**params)
+
+        project.name=form.cleaned_data['name'] 
+        project.category=form.cleaned_data['category'] 
+        project.description=form.cleaned_data['description'] 
+        image=form.cleaned_data['image']
+        if image: 
+            project.image = image
+        project.save()
+
+        form.delete_temporary_files()
+        return super(UpdateProject, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('cgapp:edit-project', kwargs={'pk': self.object.pk})
+
+class EditProject(View):
+    def get(self, request, *args, **kwargs):
+        view = DisplayProject.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = UpdateProject.as_view()
+        return view(request, *args, **kwargs)
 
 #Create Partner Icon
 class CreatePartner(SuccessMessageMixin, FormView):

@@ -14,7 +14,9 @@ class NewsForm(FileFormMixin, betterforms.BetterForm):
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
-        fieldsets = [('main', {'fields': ['name', 'body', ], 'legend': 'main', }),
+        fieldsets = [('main', {'fields': ['name',], 'legend': 'main', }),
+
+                ('text-area', {'fields': ['body'], 'legend': 'text-area'}),
                 ('images', {'fields': ['image'] + ['form_id', 'upload_url', 'delete_url'], 'legend': 'images'}),
                      ]
 # Form for creations of Members
@@ -26,10 +28,11 @@ class MemberForm(FileFormMixin, betterforms.BetterForm):
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
-
+    object_id = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
-        fieldsets = [('main', {'fields': ['first_name', 'last_name', 'description',], 'legend': 'main', }),
+        fieldsets = [('main', {'fields': ['first_name', 'last_name', ], 'legend': 'main', }),
+                ('text-area', {'fields': ['description'], 'legend': 'text-area'}),
                 ('images', {'fields': ['image'] + ['form_id', 'upload_url', 'delete_url'], 'legend': 'images'}),
                      ]
 
@@ -45,9 +48,11 @@ class ProjectForm(FileFormMixin, betterforms.BetterForm):
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
+    object_id = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
-        fieldsets = [('main', {'fields': ['name', 'description', 'category', ], 'legend': 'main', }),
+        fieldsets = [('main', {'fields': ['name', 'category', ], 'legend': 'main', }),
+                ('text-area', {'fields': ['description'], 'legend': 'text-area'}),
                 ('images', {'fields': ['image'] + ['form_id', 'upload_url', 'delete_url'], 'legend': 'images'}),
                      ]
 # Form for creations of Partners 

@@ -18,7 +18,7 @@
       {% for member in object_list %}
       <div class="col-sm-4 text-center">
         <a href ="{% url 'cgapp:members' member.id %}">
-          <img class="img-responsive" src="{{ member.avatar.medium.url }}" alt="{{ member.avatar.name}}">
+          <img class="img-responsive" src="{{ member.image.medium.url }}" alt="{{ member.image.name}}">
       </a>
       <h3>{{ member.last_name}}
         <small>{{ member.first_name }}</small>

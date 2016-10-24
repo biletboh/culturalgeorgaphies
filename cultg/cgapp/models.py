@@ -8,13 +8,13 @@ class News(models.Model):
     name = models.CharField(max_length=200)
     body = models.CharField(max_length=6000)
     pub_date = models.DateTimeField(default=timezone.now)
-    picture = ThumbnailerImageField(upload_to='photos/blog', blank=True) 
+    image = ThumbnailerImageField(upload_to='photos/blog', blank=True) 
 
 class Member(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     description = models.CharField(max_length=1500)
-    avatar = ThumbnailerImageField(upload_to='photos/members', blank=True) 
+    image = ThumbnailerImageField(upload_to='photos/members', blank=True) 
 
     #def get_absolute_url(self):
     #    return reverse('members', kwargs={'pk': self.pk})

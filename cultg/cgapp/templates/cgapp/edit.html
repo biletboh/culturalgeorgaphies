@@ -6,6 +6,9 @@
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
+{% load object_attributes %}
+{% load choices %}
+
 {% if messages %}
 <div class="message-top">
   <ul class="messages">
@@ -17,8 +20,9 @@
   </ul>
 </div>
 {% endif %}
-<form action="" name="create-form" enctype="multipart/form-data" method="post">
- {% csrf_token %}
+<form action="" id="edit-form" name="create-form" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {% render_field form.object_id value=object.id %}
   <div class="row">
     <div class="col-md-12">
       {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
@@ -32,12 +36,18 @@
         {{ field }}
         {% else %}
         <div class="row">
-            <div class="col-md-2">
+          <div class="col-md-2">
             {{ field.label_tag }}
           </div>
           <div class="col-md-10">
             {% if fieldset.name == "main" %}
-            {{ field|attr:"class:form-control" }}
+            {% with object|object_attributes:field as val %}
+            {% render_field field class+="form-control" value=val %}
+            {% endwith %}
+            {% elif fieldset.name == "text-area" %}
+            {% with object.description as text %}
+            {% render_field field|default_textarea:text class+="form-control" %}
+            {% endwith %}
             {% else %}
             {{ field }}
             {% endif %}
@@ -61,11 +71,10 @@
   </div>
 </form>
 
-
 {% include 'cgapp/upload_template.html' %}
 <script type="text/javascript">
 $(function() {
-    initUploadFields($('#id_image'));
+    initUploadFields($('#edit-form'));
     });
 </script>
 

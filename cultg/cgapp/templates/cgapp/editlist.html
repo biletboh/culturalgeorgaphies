@@ -5,9 +5,15 @@
 {% block content %}
 {% for object in object_list %}
 <div class="row">
-  <div class="col-md-8">{{ object.name}}</div>
+  <div class="col-md-8">
+    {% if object.name %} 
+    {{ object.name}}
+    {% else %}
+    {{ object.last_name }}
+    {% endif %}
+  </div>
   <div class="col-md-1">
-    <a class="btn btn-default" href="{% url 'cgapp:edit-news' object.id %}" role="button">Edit</a>
+    <a class="btn btn-default" href="{% url edit_url object.id %}" role="button">Edit</a>
   </div>
   <div class="col-md-1">
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{ object.id }}">
@@ -28,7 +34,7 @@
         <p>Do you want to delete {{ object.name }}? </p> 
       </div>
       <div class="modal-footer">
-        <form action="{% url 'cgapp:delete-news' object.id%}" method="post">{% csrf_token %}
+        <form action="{% url delete_url object.id%}" method="post">{% csrf_token %}
         <input type="submit" class="btn btn-primary" value="Yes" />
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
       </form>

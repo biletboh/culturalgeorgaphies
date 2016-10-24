@@ -39,6 +39,8 @@
           <div class="col-md-10">
             {% if fieldset.name == "main" %}
             {{ field|attr:"class:form-control" }}
+            {% elif fieldset.name == "text-area" %}
+            {{ field|attr:"class:form-control" }}
             {% else %}
             {{ field }}
             {% endif %}

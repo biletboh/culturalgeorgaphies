@@ -62,18 +62,8 @@ toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncent
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
       <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Log out<b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-        </li>
-        <li>
-        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-        </li>
-        <li>
-        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-        </li>
-        <li class="divider"></li>
         <li>
         <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
         </li>
@@ -84,22 +74,22 @@ toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncent
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul id="side-nav" class="nav navbar-nav side-nav">
         <li class="news"> 
-        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Додати Новину</a>
-        </li>
-        <li class="news"> 
-        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Редагувати Новини</a>
+        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Add News</a>
         </li>
         <li class="project">
-        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>Додати Проект</a>
+        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>Add Projects</a>
         </li>
         <li class="member">
-        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Додати Учасника</a>
+        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Add Members</a>
+        </li>
+        <li class="partner">
+        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-dashboard"></i>Add Partners</a>
+        </li>
+        <li class="news"> 
+        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit News</a>
         </li>
         <li class=""> 
         <a id="default" href="{% url 'cgapp:edit-member-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit Members</a>
-        </li>
-        <li class="partner">
-        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-dashboard"></i>Додати Партнера</a>
         </li>
 
       </ul>

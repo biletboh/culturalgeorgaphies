@@ -100,6 +100,20 @@ class UpdateNews(SingleObjectMixin, FormView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super(UpdateNews, self).post(request, *args, **kwargs)
+ 
+    def form_valid(self, form):
+        #obtain current object 
+        params = { 'pk': form.cleaned_data['object_id'] }
+        news = News.objects.get(**params)
+        news.name = form.cleaned_data['name'] 
+        news.description=form.cleaned_data['body'] 
+        image=form.cleaned_data['image']
+        if image: 
+            news.image = image
+        news.save()
+
+        form.delete_temporary_files()
+        return super(UpdateNews, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('cgapp:edit-news', kwargs={'pk': self.object.pk})
@@ -158,7 +172,7 @@ class UpdateMember(SingleObjectMixin, FormView):
         return super(UpdateMember, self).post(request, *args, **kwargs)
     
     def form_valid(self, form):
-        #obtain current site
+        #obtain current object 
         params = { 'pk': form.cleaned_data['object_id'] }
         member = Member.objects.get(**params)
 

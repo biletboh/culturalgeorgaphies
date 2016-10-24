@@ -12,6 +12,7 @@ class NewsForm(FileFormMixin, betterforms.BetterForm):
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
+    object_id = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
         fieldsets = [('main', {'fields': ['name',], 'legend': 'main', }),
@@ -62,6 +63,7 @@ class PartnerForm(FileFormMixin, betterforms.BetterForm):
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
+    object_id = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
         fieldsets = [('main', {'fields': ['name',], 'legend': 'main', }),

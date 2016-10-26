@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 #Tumnails settings 
 THUMBNAIL_ALIASES = {
     '': {
+        'extra_small': {'size':(45, 45), 'crop': True},
         'small': {'size':(60, 60), 'crop': True},
         'medium': {'size': (750, 450), 'crop': True},
         'large': {'size': (1000, 450), 'crop': True},

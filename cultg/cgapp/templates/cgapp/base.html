@@ -1,5 +1,6 @@
 {% load staticfiles %}
 
+{% load thumbnail %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,22 +95,10 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 text-center">
         <ul class="list-inline logo-partners">
+          {% for partner in partners %}
           <li>
-          <a href="http://docudays.org.ua/" target="_blank">
-            <img class="img-responsive img-circle" src="http://placekitten.com/g/60/60" alt="">
-          </a>
-          </li>
-
-          <li>
-          <a href="">
-            <img class="img-responsive img-circle" src="http://placekitten.com/g/60/60" alt="">
-          </a>
-          </li>
-
-          <li>
-          <a href="">
-            <img class="img-responsive img-circle" src="http://placekitten.com/g/60/60" alt="">
-          </a>
+          <img class="img-responsive img-circle" src="{{ partner.image.extra_small.url }}" alt="{{parner.image.name}}">
+          {% endfor %}
           </li>
         </ul>
       </div>

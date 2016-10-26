@@ -15,7 +15,6 @@ urlpatterns = [
         url(r'^team/$', views.Team.as_view(), name = 'team'),
         url(r'^projects/$', views.Projects.as_view(), name = 'projects'),
         url(r'^projects/(?P<pk>[0-9]+)/description/$', views.ProjectDetails.as_view(), name = 'project-page'),
-        url(r'^gallery/$', views.Gallery.as_view(), name = 'gallery'),
         url(r'^team/member/(?P<pk>[0-9]+)/$', views.Members.as_view(), name = 'members'),
 #Dashboard pages
         url(r'^dashboard/$', views.CreateNews.as_view(), name = 'create-news'),
@@ -32,4 +31,8 @@ urlpatterns = [
         url(r'^dashboard/projects/edit/(?P<pk>\d+)/$', views.EditProject.as_view(), name='edit-project'),
         url(r'^dashboard/projects/delete/(?P<pk>\d+)/$', views.DeleteProject.as_view(), name='delete-project'),
         url('dashboard/partner/add/$', views.CreatePartner.as_view(), name = 'create-partner'),
+        url('dashboard/partners/list/$', views.PartnersEditList.as_view(), name = 'edit-partners-list'),
+        url(r'^dashboard/partners/edit/(?P<pk>\d+)/$', views.EditPartner.as_view(), name='edit-partner'),
+        url(r'^dashboard/partners/delete/(?P<pk>\d+)/$', views.DeletePartner.as_view(), name='delete-partner'),
+
         ]

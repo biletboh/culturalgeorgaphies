@@ -20,40 +20,63 @@ from django.views.generic.detail import SingleObjectMixin
 class Blog(ListView):
     model = News
     template_name = 'cgapp/blog.html'
+    def get_context_data(self, **kwargs):
+        context = super(Blog, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #News page
 class NewsPage(DetailView):
     model = News
     template_name = 'cgapp/news.html'
+    def get_context_data(self, **kwargs):
+        context = super(NewsPage, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #About page
 class About(TemplateView):
     template_name = 'cgapp/about.html'
+    def get_context_data(self, **kwargs):
+        context = super(About, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #Team page
 class Team(ListView):
     model = Member
     template_name = 'cgapp/team.html'
+    def get_context_data(self, **kwargs):
+        context = super(Team, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #Member page
 class Members(DetailView):
     model = Member
     template_name = 'cgapp/members.html'
+    def get_context_data(self, **kwargs):
+        context = super(Members, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #Projects page
 class Projects(ListView):
     model = Project
     template_name = 'cgapp/projects.html'
+    def get_context_data(self, **kwargs):
+        context = super(Projects, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 #Project Detail page
 class ProjectDetails(DetailView):
     model = Project
     template_name = 'cgapp/project-page.html'
-
-#Gallery page 
-class Gallery(TemplateView):
-    template_name = 'cgapp/gallery.html'
-
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetails, self).get_context_data(**kwargs)
+        context['partners'] = Partner.objects.all()
+        return context
 
 ###Dashboard 
 
@@ -282,4 +305,62 @@ class CreatePartner(SuccessMessageMixin, FormView):
         partner.save()
         form.delete_temporary_files()
         return super(CreatePartner, self).form_valid(form)
+
+#Edit list of Partners 
+class PartnersEditList(ListView):
+    model = Partner 
+    template_name = 'cgapp/editlist.html'
+    def get_context_data(self, **kwargs):
+        context = super(PartnersEditList, self).get_context_data(**kwargs)
+        context['edit_url'] = 'cgapp:edit-partner'
+        context['delete_url'] = 'cgapp:delete-partner'
+        return context
+
+#Delete Parnter page
+class DeletePartner(DeleteView):
+    model = Partner 
+    success_url = '/dashboard/partners/list/'
+
+#Edit Partner Page
+class DisplayPartner(DetailView):
+    template_name = 'cgapp/edit.html'
+    model = Partner 
+    def get_context_data(self, **kwargs):
+        context = super(DisplayPartner, self).get_context_data(**kwargs)
+        context['form'] = PartnerForm()
+        return context
+
+class UpdatePartner(SingleObjectMixin, FormView):
+    form_class = PartnerForm 
+    model = Partner 
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(UpdatePartner, self).post(request, *args, **kwargs)
+    
+    def form_valid(self, form):
+        #obtain current object 
+        params = { 'pk': form.cleaned_data['object_id'] }
+        partner = Partner.objects.get(**params)
+
+        partner.name=form.cleaned_data['name'] 
+        image=form.cleaned_data['image']
+        if image: 
+            partner.image = image
+        partner.save()
+
+        form.delete_temporary_files()
+        return super(UpdatePartner, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('cgapp:edit-partner', kwargs={'pk': self.object.pk})
+
+class EditPartner(View):
+    def get(self, request, *args, **kwargs):
+        view = DisplayPartner.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = UpdatePartner.as_view()
+        return view(request, *args, **kwargs)
 

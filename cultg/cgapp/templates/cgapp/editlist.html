@@ -1,6 +1,7 @@
 {% extends "cgapp/dashboard.html" %}
 {% load static %}
 {% load widget_tweaks %}
+{% load i18n %}
 
 {% block content %}
 {% for object in object_list %}
@@ -13,11 +14,11 @@
     {% endif %}
   </div>
   <div class="col-md-1">
-    <a class="btn btn-default" href="{% url edit_url object.id %}" role="button">Edit</a>
+    <a class="btn btn-default" href="{% url edit_url object.id %}" role="button">{% trans "Edit" %}</a>
   </div>
   <div class="col-md-1">
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{ object.id }}">
-   Delete 
+      {% trans "Delete" %}
   </button>
   </div>
 </div>

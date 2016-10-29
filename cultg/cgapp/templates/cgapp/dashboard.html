@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin - Bootstrap Admin Template</title>
+<title>{% trans "Admin Page" %}</title>
 
 <!-- Bootstrap Core CSS -->
 
@@ -57,15 +58,15 @@ toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncent
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{% url 'cgapp:create-news' %}">SB Admin</a>
+      <a class="navbar-brand" href="{% url 'cgapp:create-news' %}">{% trans "Admin" %}</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
       <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Log out<b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>{% trans "Log out" %}<b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+        <a href="#"><i class="fa fa-fw fa-power-off"></i>{% trans "Log Out" %}</a>
         </li>
       </ul>
       </li>
@@ -74,28 +75,28 @@ toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncent
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul id="side-nav" class="nav navbar-nav side-nav">
         <li class="news"> 
-        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Add News</a>
+        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Add News" %}</a>
         </li>
         <li class="project">
-        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>Add Projects</a>
+        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Add Projects" %}</a>
         </li>
         <li class="member">
-        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>Add Members</a>
+        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>{% trans "Add Members" %}</a>
         </li>
         <li class="partner">
-        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-dashboard"></i>Add Partners</a>
+        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-dashboard"></i>{% trans "Add Partners" %}</a>
         </li>
         <li class="news"> 
-        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit News</a>
+        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit News" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-projects-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit Projects</a>
+        <a id="default" href="{% url 'cgapp:edit-projects-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Projects" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-member-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit Members</a>
+        <a id="default" href="{% url 'cgapp:edit-member-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Members" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-partners-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>Edit Partners</a>
+        <a id="default" href="{% url 'cgapp:edit-partners-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Partners" %}</a>
         </li>
       </ul>
     </div>

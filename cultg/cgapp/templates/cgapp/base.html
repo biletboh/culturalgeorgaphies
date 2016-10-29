@@ -1,6 +1,10 @@
 {% load staticfiles %}
 
 {% load thumbnail %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Культурні Географії</title>
+<title>{% trans "Cultural geographies" %}</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.css' %}" />
@@ -35,16 +39,57 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<!-- bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- ellipsis -->
+<script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
+<!-- jquery ui -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+<script>
+$( function() {
+    $( "#language" )
+    .selectmenu({
+position: { my : "left-0 top", at: "left bottom+15" } 
+}
+)
+    .selectmenu({
+change: function( event, data ) {
+$("#language").change();
+}
+});
+    });
+</script>
 </head>
 
 <body>
-
+<!--
 <div class="social-facebook">
   <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
 </div>
+-->
 
-<div class="brand">Культурні Географії</div>
-<div class="address-bar">childrensgeo@gmail.com</div>
+<div class="languages">
+  <form action="{% url "set_language" %}" method="post">
+    {% csrf_token %}
+    <select name="language" id="language" class="" onchange="this.form.submit()">
+      {% get_language_info_list for LANGUAGES as langs %}
+      {% for lang in langs %}
+      <option value="{{ lang.code }}"
+      {% if lang.code == LANGUAGE_CODE %}selected="selected"{% endif %}>
+      {{ lang.name_local }}
+      </option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+
+<div class="brand">{% trans "Cultural geographies" %}</div>
+<div class="address-bar">childrensgeo@gmail.com facebook.com/childrensgeographies</div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -58,22 +103,22 @@
         <span class="icon-bar"></span>
       </button>
       <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-      <a class="navbar-brand" href="index.html">Business Casual</a>
+      <a class="navbar-brand" href="index.html">{% trans "Cultural geographies" %}</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-        <a href="{% url 'cgapp:blog' %}">Блог</a>
+        <a href="{% url 'cgapp:blog' %}">{% trans "Blog" %}</a>
         </li>
         <li>
-        <a href="{% url 'cgapp:about' %}">Про нас</a>
+        <a href="{% url 'cgapp:about' %}">{% trans "About " %}</a>
         </li>
         <li>
-        <a href="{% url 'cgapp:team' %}">Команда</a>
+        <a href="{% url 'cgapp:team' %}">{% trans "Team" %}</a>
         </li>
         <li>
-        <a href="{% url 'cgapp:projects' %}">Проекти</a>
+        <a href="{% url 'cgapp:projects' %}">{% trans "Projects" %}</a>
         </li>
         <li>
         </li>
@@ -89,7 +134,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <p> Наші партнери </p> 
+        <p> {% trans "Our Partners" %}</p> 
       </div>
     </div>
     <div class="row">
@@ -110,25 +155,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 text-center">
-        <p>Copyright &copy; Your Website 2016</p>
+        <p>{% trans "Made by" %} #bb 2016</p>
       </div>
     </div>
   </div>
 </footer>
-
-<!-- bootstrap -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- ellipsis -->
-<script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
 <!-- Script to Activate the Carousel -->
 <script>
 $('.carousel').carousel({
 interval: 5000 //changes the speed
 })
 </script>
-
 </body>
 
 </html>

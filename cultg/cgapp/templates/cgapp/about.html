@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+{% load i18n %}
 
 <div class="container">
 
@@ -9,8 +10,8 @@
     <div class="box">
       <div class="col-lg-12">
         <hr>
-        <h2 class="intro-text text-center">Про
-          <strong>Культурні географії</strong>
+        <h2 class="intro-text text-center"> {% trans "About" %}
+          <strong>{% trans "Cultural geographies" %}</strong>
         </h2>
         <hr>
       </div>
@@ -18,6 +19,7 @@
         <img class="img-responsive img-border-left" src="http://placekitten.com/g/400/300" alt="">
       </div>
       <div class="col-md-6">
+        <p>{% trans "Description" %}</p>
         <p>This is a great place to introduce your company or project and describe what you do.</p>
         <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
@@ -32,11 +34,12 @@
         <div class="col-lg-12 col-md-12">
           <hr>
           <h2 class="intro-text text-center">
-            <strong>Дитячі географії</strong>
+            <strong>{% trans "Geographies of Children" %}</strong>
           </h2>
           <hr>
         </div>
         <div class="col-md-12">
+          <p>{% trans "Description" %} </p>
           <p>This is a great place to introduce your company or project and describe what you do.</p>
           <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
@@ -50,11 +53,12 @@
         <div class="col-md-12">
           <hr>
           <h2 class="intro-text text-center">
-            <strong>Розвиток територій та просторів</strong>
+            <strong>{% trans "The Development of Territories and Spaces" %}</strong>
           </h2>
           <hr>
         </div>
         <div class="col-md-12">
+          <p>{% trans "Description" %} </p>
           <p>This is a great place to introduce your company or project and describe what you do.</p>
           <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>

@@ -299,3 +299,32 @@ footer p {
   font-size: 25px; 
   color: white; 
 }
+.languages {
+  position: absolute;
+  top: 25px;
+  left: 45px;
+}
+.ui-selectmenu-menu li {
+  color: #333;
+  background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0%;
+  list-style: none;
+  margin: 0 auto;
+  font-size: 14pt; 
+}
+#language-button {
+  width: 170px;
+  outline: none;
+  font-size: 18pt; 
+  color: rgba(255, 255, 255, 0.9); 
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+}
+#language-button .ui-icon {
+  display: none;
+}
+#language-menu .ui-state-active {
+  background-color: #A2A0A0;
+  border: none;
+}

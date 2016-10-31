@@ -17,7 +17,12 @@ urlpatterns = [
         url(r'^projects/(?P<pk>[0-9]+)/description/$', views.ProjectDetails.as_view(), name = 'project-page'),
         url(r'^team/member/(?P<pk>[0-9]+)/$', views.Members.as_view(), name = 'members'),
 #Dashboard pages
-        url(r'^dashboard/$', views.CreateNews.as_view(), name = 'create-news'),
+
+##Login
+        url(r'^dashboard/$', auth_views.login, {'template_name': 'cgapp/login.html'} , name = 'login'),
+        url(r'^dashboard/logout/$', auth_views.logout, {'next_page': '/dashboard/'}, name = 'logout'),
+
+##CRUD
         url('dashboard/members/add/$', views.CreateMember.as_view(), name = 'create-member'),
         url('dashboard/members/list/$', views.MemberEditList.as_view(), name = 'edit-member-list'),
         url('dashboard/members/edit/(?P<pk>[0-9]+)/$', views.EditMember.as_view(), name = 'edit-member'),

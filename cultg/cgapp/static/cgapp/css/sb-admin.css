@@ -230,3 +230,11 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+.margin-top {
+  margin-top: 15px;
+}
+
+#sign-in {
+  color: white;
+}

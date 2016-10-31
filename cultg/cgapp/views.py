@@ -8,6 +8,9 @@ from django.urls import reverse_lazy
 from cgapp.models import Member, News, Project, Partner
 
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth import authenticate, login
 from cgapp.forms import NewsForm, MemberForm, ProjectForm, PartnerForm 
 
 from django.contrib.messages.views import SuccessMessageMixin
@@ -81,10 +84,11 @@ class ProjectDetails(DetailView):
 ###Dashboard 
 
 #Create News page
-class CreateNews(FormView):
+class CreateNews(LoginRequiredMixin, FormView):
     form_class = NewsForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/news/add/'
+    login_url = '/dashboard/'
     def form_valid(self, form):
         news = News(name=form.cleaned_data['name'], language=form.cleaned_data['language'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
         news.save()
@@ -92,9 +96,10 @@ class CreateNews(FormView):
         return super(CreateNews, self).form_valid(form)
 
 #Edit list of News
-class NewsEditList(ListView):
+class NewsEditList(LoginRequiredMixin, ListView):
     model = News  
     template_name = 'cgapp/editlist.html'
+    login_url = '/dashboard/'
     def get_context_data(self, **kwargs):
         context = super(NewsEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-news'
@@ -102,14 +107,15 @@ class NewsEditList(ListView):
         return context
 
 #Delete News page
-class DeleteNews(DeleteView):
+class DeleteNews(LoginRequiredMixin, DeleteView):
     model = News
     template_name = 'cgapp/editlist.html'
     success_url = 'dashboard/news/list/' 
 
 #Edit News Page
-class DisplayNews(DetailView):
+class DisplayNews(LoginRequiredMixin, DetailView):
     template_name = 'cgapp/edit.html'
+    login_url = '/dashboard/'
     model = News
     def get_context_data(self, **kwargs):
         context = super(DisplayNews, self).get_context_data(**kwargs)
@@ -153,10 +159,11 @@ class EditNews(View):
         return view(request, *args, **kwargs)
 
 #Create Member page
-class CreateMember(FormView):
+class CreateMember(LoginRequiredMixin, FormView):
     form_class = MemberForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/members/add/'
+    login_url = '/dashboard/'
     def form_valid(self, form):
         members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
         members.save()
@@ -164,9 +171,10 @@ class CreateMember(FormView):
         return super(CreateMember, self).form_valid(form)
     
 #Edit list of Member 
-class MemberEditList(ListView):
+class MemberEditList(LoginRequiredMixin, ListView):
     model = Member 
     template_name = 'cgapp/editlist.html'
+    login_url = '/dashboard/'
     def get_context_data(self, **kwargs):
         context = super(MemberEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-member'
@@ -174,14 +182,15 @@ class MemberEditList(ListView):
         return context
 
 #Delete Member page
-class DeleteMember(DeleteView):
+class DeleteMember(LoginRequiredMixin, DeleteView):
     model = Member
     template_name = 'cgapp/delete-member.html'
     success_url = 'dashboard/members/list/' 
 
 #Edit Member Page
-class DisplayMember(DetailView):
+class DisplayMember(LoginRequiredMixin, DetailView):
     template_name = 'cgapp/edit.html'
+    login_url = '/dashboard/'
     model = Member 
     def get_context_data(self, **kwargs):
         context = super(DisplayMember, self).get_context_data(**kwargs)
@@ -226,10 +235,11 @@ class EditMember(View):
         return view(request, *args, **kwargs)
 
 #Create Project page
-class CreateProject(FormView):
+class CreateProject(LoginRequiredMixin, FormView):
     form_class = ProjectForm
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/projects/add/'
+    login_url = '/dashboard/'
     def form_valid(self, form):
         project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], language=form.cleaned_data['language'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
@@ -237,9 +247,10 @@ class CreateProject(FormView):
         return super(CreateProject, self).form_valid(form)
     
 #Edit list of Projects 
-class ProjectsEditList(ListView):
+class ProjectsEditList(LoginRequiredMixin, ListView):
     model = Project 
     template_name = 'cgapp/editlist.html'
+    login_url = '/dashboard/'
     def get_context_data(self, **kwargs):
         context = super(ProjectsEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-project'
@@ -247,14 +258,15 @@ class ProjectsEditList(ListView):
         return context
 
 #Delete Project page
-class DeleteProject(DeleteView):
+class DeleteProject(LoginRequiredMixin, DeleteView):
     model = Project 
     template_name = 'cgapp/delete-project.html'
     success_url = '/dashboard/projects/list/'
 
 #Edit Project Page
-class DisplayProject(DetailView):
+class DisplayProject(LoginRequiredMixin, DetailView):
     template_name = 'cgapp/edit.html'
+    login_url = '/dashboard/'
     model = Project 
     def get_context_data(self, **kwargs):
         context = super(DisplayProject, self).get_context_data(**kwargs)
@@ -299,10 +311,11 @@ class EditProject(View):
         return view(request, *args, **kwargs)
 
 #Create Partner Icon
-class CreatePartner(SuccessMessageMixin, FormView):
+class CreatePartner(LoginRequiredMixin, SuccessMessageMixin, FormView):
     form_class = PartnerForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/partner/add/'
+    login_url = '/dashboard/'
     success_message = "Partner was created successfully"
     def form_valid(self, form):
         partner = Partner(name=form.cleaned_data['name'], language=form.cleaned_data['language'], image=form.cleaned_data['image'])
@@ -311,9 +324,10 @@ class CreatePartner(SuccessMessageMixin, FormView):
         return super(CreatePartner, self).form_valid(form)
 
 #Edit list of Partners 
-class PartnersEditList(ListView):
+class PartnersEditList(LoginRequiredMixin, ListView):
     model = Partner 
     template_name = 'cgapp/editlist.html'
+    login_url = '/dashboard/'
     def get_context_data(self, **kwargs):
         context = super(PartnersEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-partner'
@@ -326,9 +340,10 @@ class DeletePartner(DeleteView):
     success_url = '/dashboard/partners/list/'
 
 #Edit Partner Page
-class DisplayPartner(DetailView):
+class DisplayPartner(LoginRequiredMixin, DetailView):
     template_name = 'cgapp/edit.html'
     model = Partner 
+    login_url = '/dashboard/'
     def get_context_data(self, **kwargs):
         context = super(DisplayPartner, self).get_context_data(**kwargs)
         context['form'] = PartnerForm()

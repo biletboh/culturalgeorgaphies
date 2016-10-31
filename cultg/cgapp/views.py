@@ -129,8 +129,9 @@ class UpdateNews(SingleObjectMixin, FormView):
         params = { 'pk': form.cleaned_data['object_id'] }
         news = News.objects.get(**params)
         news.name = form.cleaned_data['name'] 
-        news.description=form.cleaned_data['body'] 
-        image=form.cleaned_data['image']
+        news.body = form.cleaned_data['body'] 
+        print(form.cleaned_data['body']) 
+        image = form.cleaned_data['image']
         if image: 
             news.image = image
         news.save()

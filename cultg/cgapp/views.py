@@ -86,7 +86,7 @@ class CreateNews(FormView):
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/news/add/'
     def form_valid(self, form):
-        news = News(name=form.cleaned_data['name'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
+        news = News(name=form.cleaned_data['name'], language=form.cleaned_data['language'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
         news.save()
         form.delete_temporary_files()
         return super(CreateNews, self).form_valid(form)
@@ -129,6 +129,7 @@ class UpdateNews(SingleObjectMixin, FormView):
         params = { 'pk': form.cleaned_data['object_id'] }
         news = News.objects.get(**params)
         news.name = form.cleaned_data['name'] 
+        news.language=form.cleaned_data['language']
         news.body = form.cleaned_data['body'] 
         print(form.cleaned_data['body']) 
         image = form.cleaned_data['image']
@@ -157,7 +158,7 @@ class CreateMember(FormView):
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/members/add/'
     def form_valid(self, form):
-        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
+        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
         members.save()
         form.delete_temporary_files()
         return super(CreateMember, self).form_valid(form)
@@ -202,6 +203,7 @@ class UpdateMember(SingleObjectMixin, FormView):
 
         member.first_name=form.cleaned_data['first_name'] 
         member.last_name=form.cleaned_data['last_name'] 
+        member.language=form.cleaned_data['language']
         member.description=form.cleaned_data['description'] 
         image=form.cleaned_data['image']
         if image: 
@@ -229,7 +231,7 @@ class CreateProject(FormView):
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/projects/add/'
     def form_valid(self, form):
-        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
+        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], language=form.cleaned_data['language'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
         form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
@@ -274,6 +276,7 @@ class UpdateProject(SingleObjectMixin, FormView):
 
         project.name=form.cleaned_data['name'] 
         project.category=form.cleaned_data['category'] 
+        project.language=form.cleaned_data['language']
         project.description=form.cleaned_data['description'] 
         image=form.cleaned_data['image']
         if image: 
@@ -302,7 +305,7 @@ class CreatePartner(SuccessMessageMixin, FormView):
     success_url = '/dashboard/partner/add/'
     success_message = "Partner was created successfully"
     def form_valid(self, form):
-        partner = Partner(name=form.cleaned_data['name'], image=form.cleaned_data['image'])
+        partner = Partner(name=form.cleaned_data['name'], language=form.cleaned_data['language'], image=form.cleaned_data['image'])
         partner.save()
         form.delete_temporary_files()
         return super(CreatePartner, self).form_valid(form)
@@ -345,6 +348,7 @@ class UpdatePartner(SingleObjectMixin, FormView):
         partner = Partner.objects.get(**params)
 
         partner.name=form.cleaned_data['name'] 
+        partner.language=form.cleaned_data['language']
         image=form.cleaned_data['image']
         if image: 
             partner.image = image

@@ -5,6 +5,7 @@
 {% load tz %}
 {% load thumbnail %}
 {% load i18n %}
+{% load categories %}
 
 <div class="container">
 
@@ -17,7 +18,7 @@
                     </h2>
                     <hr>
                 </div>
-                {% for post in object_list reversed %}
+                {% for post in object_list|language:LANGUAGE_CODE reversed %}
                 <div class="col-lg-12 text-center">
 
                   <img class="img-responsive blog-image" src="{{ post.image.large.url }}" alt="{{ post.image.name }}">

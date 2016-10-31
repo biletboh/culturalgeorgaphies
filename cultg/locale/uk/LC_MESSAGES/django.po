@@ -20,9 +20,6 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: cgapp/templates/cgapp/about.html:13 
-msgid "About"
-msgstr "Про"
-
 #:cgapp/templates/cgapp/base.html:114
 msgid "About "
 msgstr "Про Нас"
@@ -137,6 +134,10 @@ msgstr "Редагувати"
 msgid "Delete"
 msgstr "Видалити"
 
-#: cgapp/templates/cgapp/projects.html:13 cgapp/templates/cgapp/team.html:14
+#: cgapp/templates/cgapp/projects.html:13 
+msgid "Our "
+msgstr "Наші"
+
+#: cgapp/templates/cgapp/team.html:14
 msgid "Our"
 msgstr "Наша"

@@ -17,16 +17,22 @@
         </h2>
         <hr>
       </div>
-      {% for member in object_list|language:LANGUAGE_CODE %}
-      <div class="col-sm-4 text-center">
-        <a href ="{% url 'cgapp:members' member.id %}">
-          <img class="img-responsive" src="{{ member.image.medium.url }}" alt="{{ member.image.name}}">
-      </a>
-      <h3>{{ member.last_name}}
-        <small>{{ member.first_name }}</small>
-        </h3>
+      <div class="popup-gallery">
+        {% for member in object_list|language:LANGUAGE_CODE %}
+        <div class="col-sm-4 text-center">
+          <a href ="{% url 'cgapp:members' member.id %}" class="portfolio-box">
+            <img class="img-responsive" src="{{ member.image.medium.url }}" alt="{{ member.image.name}}">
+            <div class="portfolio-box-caption green">
+              <div class="portfolio-box-caption-content">
+                <div class="project-name">
+                  {{ member.last_name}} {{ member.first_name }}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
       <div class="clearfix"></div>
     </div>
   </div>

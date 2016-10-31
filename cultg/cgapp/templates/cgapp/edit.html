@@ -47,7 +47,7 @@
             {% endwith %}
             {% elif fieldset.name == "text-area" %}
             {% with object.description as text %}
-            {% render_field field|default_textarea:text class+="form-control" %}
+            {% render_field field|default_textarea:text class+="form-control mceEditor" %}
             {% endwith %}
             {% else %}
             {{ field }}
@@ -70,13 +70,13 @@
       <input type="submit" value="{% trans 'Submit' %}" />
     </div>
   </div>
+  <div id="test">
+  </div>
 </form>
-
 {% include 'cgapp/upload_template.html' %}
 <script type="text/javascript">
 $(function() {
     initUploadFields($('#edit-form'));
     });
 </script>
-
 {% endblock %}

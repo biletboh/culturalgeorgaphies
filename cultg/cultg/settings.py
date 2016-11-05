@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_file_form.ajaxuploader',
     'widget_tweaks',
     'tinymce',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [

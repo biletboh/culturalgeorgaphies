@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 from django.views.generic import View, DetailView, ListView, FormView, TemplateView, DeleteView 
+
+from el_pagination.views import AjaxListView
+
 from django.views.generic.edit import FormMixin
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -20,13 +23,16 @@ from django.http import HttpResponseForbidden
 from django.views.generic.detail import SingleObjectMixin
 
 #Blog
-class Blog(ListView):
-    model = News
+class Blog(AjaxListView):
+    context_object_name = "posts"
     template_name = 'cgapp/blog.html'
+    page_template = 'cgapp/post_list.html'
     def get_context_data(self, **kwargs):
         context = super(Blog, self).get_context_data(**kwargs)
         context['partners'] = Partner.objects.all()
         return context
+    def get_queryset(self):
+        return News.objects.all()
 
 #News page
 class NewsPage(DetailView):

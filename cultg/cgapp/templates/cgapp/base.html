@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Andika|Cousine:400,400i,700,700i&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&subset=cyrillic,cyrillic-ext" rel="stylesheet"> 
+
 <!-- Font Awesome -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -45,11 +46,18 @@
 
 <!-- ellipsis -->
 <script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
-<!-- jquery ui -->
 
+<!-- jquery ui -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<!-- Pagination Ajax -->
+<script src="{% static 'el-pagination/js/el-pagination.js' %}" type="text/javascript" charset="utf-8"></script>
+<script>$.endlessPaginate({
+paginateOnScroll: true,
+paginateOnScrollChunkSize: 5
+});</script>
 
+<!-- Language select -->
 <script>
 $( function() {
     $( "#language" )

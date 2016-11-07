@@ -19,10 +19,16 @@
 <title>{% trans "Cultural geographies" %}</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.min.css' %}" />
+
+<!-- Bootstrap JS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
 <!-- Custom CSS -->
 
-<link href="{% static 'cgapp/css/business-casual.css' %}" rel="stylesheet">
+<link href="{% static 'cgapp/css/base.css' %}" rel="stylesheet">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&subset=cyrillic,cyrillic-ext" rel="stylesheet"> 
@@ -33,44 +39,17 @@
 <!-- Font Awesome -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<!-- bootstrap -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- ellipsis -->
+<!-- Ellipsis -->
 <script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
 
-<!-- jquery ui -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 <!-- Pagination Ajax -->
 <script src="{% static 'el-pagination/js/el-pagination.js' %}" type="text/javascript" charset="utf-8"></script>
-<script>$.endlessPaginate({
+
+<script>
+$.endlessPaginate({
 paginateOnScroll: true,
 paginateOnScrollChunkSize: 5
-});</script>
-
-<!-- Language select -->
-<script>
-$( function() {
-    $( "#language" )
-    .selectmenu({
-position: { my : "left-0 top", at: "left bottom+15" } 
-}
-)
-    .selectmenu({
-change: function( event, data ) {
-$("#language").change();
-}
 });
-    });
 </script>
 </head>
 
@@ -80,11 +59,15 @@ $("#language").change();
   <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
 </div>
 -->
+<div class="languages">
+  <button class="btn btn-default" id="en" value="en" type="button">EN</button>
+  <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
+</div>
 
 <div class="languages">
-  <form action="{% url "set_language" %}" method="post">
+  <form action="{% url "set_language" %}" id="lang-form" method="post">
     {% csrf_token %}
-    <select name="language" id="language" class="" onchange="this.form.submit()">
+    <select name="language" id="language" class="" hidden>
       {% get_language_info_list for LANGUAGES as langs %}
       {% for lang in langs %}
       <option value="{{ lang.code }}"
@@ -127,8 +110,6 @@ $("#language").change();
         </li>
         <li>
         <a href="{% url 'cgapp:projects' %}">{% trans "Projects" %}</a>
-        </li>
-        <li>
         </li>
       </ul>
     </div>
@@ -174,6 +155,18 @@ $('.carousel').carousel({
 interval: 5000 //changes the speed
 })
 </script>
+<script>
+$(function(){
+    $("#en,#uk").click(function() {
+      var language = this.value;
+      console.log(language);
+      $("#language").val(language);
+      $("#lang-form").submit();
+      });
+    });
+</script>
+
+
 </body>
 
 </html>

@@ -17,7 +17,7 @@
         </h2>
         <hr>
       </div>
-      <div class="popup-gallery">
+      <div class="row popup-gallery no-gutter">
         {% for member in object_list|language:LANGUAGE_CODE %}
         <div class="col-sm-4 text-center">
           <a href ="{% url 'cgapp:members' member.id %}" class="portfolio-box">

@@ -15,27 +15,26 @@
 <title>{% trans "Admin Page" %}</title>
 
 <!-- Bootstrap Core CSS -->
-
 <link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.css' %}" />
-<!-- Custom CSS -->
 
-<link href="{% static 'cgapp/css/sb-admin.css' %}" rel="stylesheet">
-
-<!-- bootstrap -->
+<!-- Bootstrap JS-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<!-- Custom CSS -->
+<link href="{% static 'cgapp/css/sb-admin.css' %}" rel="stylesheet">
 
 <!-- File Uploader -->
 <script src="{% static 'ajaxuploader/js/fileuploader.js' %}"></script>
 <script src="{% static 'file_form/file_form.js' %}"></script>
 
 <!-- File Uploader Css -->
-<link rel="stylesheet" href="{% static 'cgapp/css/fine-uploader.css' %}">
+<link rel="stylesheet" href="{% static 'ajaxuploader/css/fileuploader.css' %}">
 
 
 {% block head %}
 {% endblock %}
+
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ 
 selector:'#id_body',

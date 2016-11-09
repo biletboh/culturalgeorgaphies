@@ -22,9 +22,11 @@
           <img class="img-responsive blog-image" src="{{ object.image.large.url }}" alt="{{ object.image.name }}">
         </div>
       </div>
-      <div class="row">
+      <div class="row news">
         <div class="col-md-12">
-          <p class="post"> {{ object.body|safe }} </p>
+          <div class="post"> 
+            {{ object.body|safe }} 
+          </div>
         </div>
         <div class="clearfix"></div>
       </div>

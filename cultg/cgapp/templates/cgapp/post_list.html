@@ -19,7 +19,7 @@
     <small>{{ post.pub_date }}</small>
     {% endtimezone %}
   </h2>
-  <p class="dot-ellipsis dot-height-90">{{ post.body|safe }}</p>
+  <div class="dot-ellipsis dot-height-90 text-left">{{ post.body|safe }}</div>
   <a href="{% url 'cgapp:news' post.id %}" class="btn btn-default btn-lg">{% trans "Read More" %}</a>
   <hr>
 </div>

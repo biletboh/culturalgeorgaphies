@@ -115,6 +115,7 @@ footer p {
 
 .logo-partners {
   padding: 5px 0;
+  margin-bottom: 0;
 }
 .logo-partners p {
   font-size: 1.25em;
@@ -312,4 +313,7 @@ footer p {
 .languages .btn {
   background: rgba(255,255,255,0.9);
   border-radius: 0px;
+}
+.copyright {
+  margin-bottom: 5px;
 }

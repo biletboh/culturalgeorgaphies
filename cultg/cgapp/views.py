@@ -143,7 +143,6 @@ class UpdateNews(SingleObjectMixin, FormView):
         news.name = form.cleaned_data['name'] 
         news.language=form.cleaned_data['language']
         news.body = form.cleaned_data['body'] 
-        print(form.cleaned_data['body']) 
         image = form.cleaned_data['image']
         if image: 
             news.image = image
@@ -324,7 +323,7 @@ class CreatePartner(LoginRequiredMixin, SuccessMessageMixin, FormView):
     login_url = '/dashboard/'
     success_message = "Partner was created successfully"
     def form_valid(self, form):
-        partner = Partner(name=form.cleaned_data['name'], language=form.cleaned_data['language'], image=form.cleaned_data['image'])
+        partner = Partner(name=form.cleaned_data['name'], image=form.cleaned_data['image'])
         partner.save()
         form.delete_temporary_files()
         return super(CreatePartner, self).form_valid(form)
@@ -369,7 +368,6 @@ class UpdatePartner(SingleObjectMixin, FormView):
         partner = Partner.objects.get(**params)
 
         partner.name=form.cleaned_data['name'] 
-        partner.language=form.cleaned_data['language']
         image=form.cleaned_data['image']
         if image: 
             partner.image = image

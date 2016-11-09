@@ -64,7 +64,6 @@ class ProjectForm(FileFormMixin, betterforms.BetterForm):
 # Form for creations of Partners 
 class PartnerForm(FileFormMixin, betterforms.BetterForm):
     name = forms.CharField()
-    language = forms.ChoiceField(choices=LANGUAGES)
     image = UploadedFileField(required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)

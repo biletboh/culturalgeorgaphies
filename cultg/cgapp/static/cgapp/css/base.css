@@ -221,6 +221,9 @@ footer p {
   .navbar-brand {
     padding: 15px;
   }
+h2 {
+font-size: 16pt;
+}
 }
 @media screen and (min-width:1200px) {
     .box:after {

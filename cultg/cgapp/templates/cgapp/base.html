@@ -63,35 +63,11 @@ paginateOnScrollChunkSize: 5
   <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
 </div>
 -->
+
 <!-- Languages -->
-<div class="languages hidden-xs hidden-sm">
+<div class="languages hidden-xs">
   <button class="btn btn-default" id="en" value="en" type="button">EN</button>
   <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
-</div>
-<!--
-<div class="language-modal lagnuages hidden-md hidden-lg">
-  <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#langModal">
-  <i class="fa fa-language" aria-hidden="true"></i>
-  </button>
-</div>
--->
-
-<!-- Modal -->
-<div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div class="modal-languages">
-          <button class="btn btn-default" id="en" value="en" type="button">EN</button>
-          <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="languages">
@@ -142,7 +118,7 @@ paginateOnScrollChunkSize: 5
         <a href="{% url 'cgapp:projects' %}">{% trans "Projects" %}</a>
 	</li>
 	</ul>
-	<div class="nav nav-lang hidden-md hidden-lg text-center">
+	<div class="nav nav-lang hidden-sm hidden-md hidden-lg text-center">
 	<button class="btn btn-default" id="en" value="en" type="button">EN</button>
 	<button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
 	</div>

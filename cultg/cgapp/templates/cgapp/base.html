@@ -22,10 +22,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'cgapp/css/bootstrap.min.css' %}" />
 
 <!-- Bootstrap JS-->
+<!--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+-->
+<script src="{% static 'cgapp/js/jquery.js' %}"></script>
 
-
+<script src="{% static 'cgapp/js/bootstrap.js' %}"></script>
 <!-- Custom CSS -->
 
 <link href="{% static 'cgapp/css/base.css' %}" rel="stylesheet">
@@ -65,12 +68,13 @@ paginateOnScrollChunkSize: 5
   <button class="btn btn-default" id="en" value="en" type="button">EN</button>
   <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
 </div>
-
+<!--
 <div class="language-modal lagnuages hidden-md hidden-lg">
   <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#langModal">
   <i class="fa fa-language" aria-hidden="true"></i>
   </button>
 </div>
+-->
 
 <!-- Modal -->
 <div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -120,7 +124,7 @@ paginateOnScrollChunkSize: 5
         <span class="icon-bar"></span>
       </button>
       <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-      <a class="navbar-brand" href="index.html">{% trans "Cultural geographies" %}</a>
+      <a class="navbar-brand" href="{% url 'cgapp:blog' %}">{% trans "Cultural geographies" %}</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -136,9 +140,14 @@ paginateOnScrollChunkSize: 5
         </li>
         <li>
         <a href="{% url 'cgapp:projects' %}">{% trans "Projects" %}</a>
-        </li>
-      </ul>
-    </div>
+	</li>
+	</ul>
+	<div class="nav nav-lang hidden-md hidden-lg text-center">
+	<button class="btn btn-default" id="en" value="en" type="button">EN</button>
+	<button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
+	</div>
+
+	</div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container -->

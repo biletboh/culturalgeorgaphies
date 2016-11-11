@@ -58,10 +58,10 @@ hr {
 border: none;
 }
 .nav-lang {
-background-color: rgba(0,0,0,0.2);
-margin-right: -15px;
-margin-left: -15px;
-
+	background-color: rgba(0,0,0,0.2);
+	margin-right: -15px;
+	margin-left: -15px;
+	padding-right: 15px;
 }
 
 .nav-lang .btn {
@@ -221,9 +221,9 @@ footer p {
   .navbar-brand {
     padding: 15px;
   }
-h2 {
-font-size: 16pt;
-}
+  h2 {
+      font-size: 16pt;
+  }
 }
 @media screen and (min-width:1200px) {
     .box:after {
@@ -232,8 +232,33 @@ font-size: 16pt;
         clear: both;
     }
 }
+@media (max-width: 768px) {
+  .btn-responsive {
+    margin-top: 10px;
+    padding:4px 9px;
+    font-size:12pt;
+    line-height: 1;
+  }
+}
 
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    margin-top: 10px;
+    padding:4px 9px;
+    font-size: 12pt;
+    line-height: 1.2;
+  }
+  h2 {
+      font-size: 18pt;
+  }
 
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+h2 {
+font-size: 20pt;
+}
+}
 /*My Custom Css*/
 .no-gutter > [class*='col-'] {
   padding-right: 0;

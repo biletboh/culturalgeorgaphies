@@ -21,19 +21,17 @@
 
 {% for object in object_list %}
 <div class="row object-list">
-  <div class="col-xs-10 col-sm-10 col-md-4">
+  <div class="col-xs-8 col-sm-10 col-md-6">
     {% if object.name %} 
     {{ object.name}}
     {% else %}
     {{ object.last_name }}
     {% endif %}
   </div>
-  <div class="col-xs-1 col-sm-1 col-md-1">
+  <div class="col-xs-4 col-sm-2 col-md-2">
     <a class="btn" href="{% url edit_url object.id %}" role="button">
       <i class="fa fa-lg fa-pencil-square-o" aria-hidden="true"></i>
     </a>
-  </div>
-  <div class="col-xs-1 col-sm-1 col-md-1">
     <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#{{ object.id }}">
       <i class="fa fa-lg fa-times" aria-hidden="true"></i>
     </button>

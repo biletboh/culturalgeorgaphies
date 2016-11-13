@@ -4,22 +4,39 @@
 {% load i18n %}
 
 {% block content %}
+<div class="dashboard-header">
+   {% trans "Edit" %} 
+</div>
+{% if messages %}
+<div class="message-top">
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    {{ message }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
 {% for object in object_list %}
-<div class="row">
-  <div class="col-md-8">
+<div class="row object-list">
+  <div class="col-xs-10 col-sm-10 col-md-4">
     {% if object.name %} 
     {{ object.name}}
     {% else %}
     {{ object.last_name }}
     {% endif %}
   </div>
-  <div class="col-md-1">
-    <a class="btn btn-default" href="{% url edit_url object.id %}" role="button">{% trans "Edit" %}</a>
+  <div class="col-xs-1 col-sm-1 col-md-1">
+    <a class="btn" href="{% url edit_url object.id %}" role="button">
+      <i class="fa fa-lg fa-pencil-square-o" aria-hidden="true"></i>
+    </a>
   </div>
-  <div class="col-md-1">
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{ object.id }}">
-      {% trans "Delete" %}
-  </button>
+  <div class="col-xs-1 col-sm-1 col-md-1">
+    <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#{{ object.id }}">
+      <i class="fa fa-lg fa-times" aria-hidden="true"></i>
+    </button>
   </div>
 </div>
 
@@ -36,9 +53,9 @@
       </div>
       <div class="modal-footer">
         <form action="{% url delete_url object.id%}" method="post">{% csrf_token %}
-        <input type="submit" class="btn btn-primary" value="Yes" />
-        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-      </form>
+          <input type="submit" class="btn btn-primary" value="Yes" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </form>
       </div>
     </div>
   </div>

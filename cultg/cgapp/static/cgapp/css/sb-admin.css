@@ -43,6 +43,17 @@ body {
     }
 }
 
+@media(max-width:768px) {
+    #wrapper {
+        margin-top: -50px;
+    }
+    #page-wrapper {
+       padding-top: 15px;
+       padding-bottom: 15px;
+    }
+}
+
+
 /* Top Navigation */
 
 .top-nav {
@@ -237,4 +248,31 @@ ul.alert-dropdown {
 
 #sign-in {
   color: white;
+}
+
+.object-list {
+  margin: 5px 10px;
+}
+.object-list .btn {
+  font-size: 10pt;
+  padding: 4px 4px;
+  border: 0;
+}
+.object-list a {
+  color: #333;
+}
+
+.object-list a:hover {
+  background-color: #e6e6e6;
+  color: #333;
+}
+
+#sign-in {
+  margin: 20px 15px;
+}
+.dashboard-header {
+  font-size: 18pt;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
 }

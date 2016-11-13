@@ -7,7 +7,9 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load i18n %}
-
+<div class="dashboard-header">
+   {% trans "Create" %} 
+</div>
 {% if messages %}
 <div class="message-top">
   <ul class="messages">
@@ -60,7 +62,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <input type="submit" value="{% trans "Submit" %}" />
+      <input class="btn btn-default" type="submit" value="{% trans "Submit" %}" />
     </div>
   </div>
 </form>

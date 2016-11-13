@@ -5,12 +5,12 @@
  */
 
 body {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  background: url('../img/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 h1,
@@ -19,116 +19,122 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
-    font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 p {
-    font-size: 12pt;
-    line-height: 1.6;
-    color: #000;
+  font-size: 12pt;
+  line-height: 1.6;
+  color: #000;
 }
 
 hr {
-    max-width: 400px;
-    border-color: #999999;
+  max-width: 400px;
+  border-color: #999999;
 }
 
 .brand,
 .address-bar {
-    display: none;
+  display: none;
 }
 
 .navbar-brand {
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 2px;
-    padding: 5px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 5px;
 }
 
 .navbar-nav {
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 .navbar {
-border: none;
+  border: none;
 }
 .nav-lang {
-	background-color: rgba(0,0,0,0.2);
-	margin-right: -15px;
-	margin-left: -15px;
-	padding-right: 15px;
+  background-color: rgba(0,0,0,0.2);
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-right: 15px;
 }
 
 .nav-lang .btn {
-font-size: 8pt;
-padding: 2px 10px;
-margin-top: 2px;
-margin-bottom: 2px;
-border-radius: 0;
+  font-size: 8pt;
+  padding: 2px 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0;
+  color: #777;
+  letter-spacing: 3px;
+}
+.nav-lang .btn:hover {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .img-full {
-    min-width: 100%;
+  min-width: 100%;
 }
 
 .brand-before,
 .brand-name {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .brand-before {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 
 .brand-name {
-    margin: 0;
-    font-size: 4em;
+  margin: 0;
+  font-size: 4em;
 }
 
 .tagline-divider {
-    margin: 15px auto 3px;
-    max-width: 250px;
-    border-color: #999999;
+  margin: 15px auto 3px;
+  max-width: 250px;
+  border-color: #999999;
 }
 
 .box {
-    margin-bottom: 20px;
-    padding: 30px 50px;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  background: #fff;
+  background: rgba(255,255,255,0.9);
 }
 
 .intro-text {
-    text-transform: uppercase;
-    font-size: 1.25em;
-    font-weight: 400;
-    letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .img-border {
-    float: none;
-    margin: 0 auto 0;
-    border: #999999 solid 1px;
+  float: none;
+  margin: 0 auto 0;
+  border: #999999 solid 1px;
 }
 
 .img-left {
-    float: none;
-    margin: 0 auto 0;
+  float: none;
+  margin: 0 auto 0;
 }
 
 footer {
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+  background: #fff;
+  background: rgba(255,255,255,0.9);
 }
 
 footer p {
-    margin: 0;
-    padding: 5px 0;
+  margin: 0;
+  padding: 5px 0;
 }
 
 .logo-partners {
@@ -148,117 +154,75 @@ footer p {
 }
 
 @media screen and (min-width:768px) {
-    .brand {
-        display: inherit;
-        margin: 0;
-        padding: 30px 0 10px;
-        text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 4em;
-        font-weight: 700;
-        line-height: normal;
-        color: #fff;
-    }
-
-    .top-divider {
-        margin-top: 0;
-    }
-
-    .img-left {
-        float: left;
-        margin-right: 25px;
-    }
-
-    .address-bar {
-        display: inherit;
-        margin: 0;
-        padding: 0 0 40px;
-        text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        font-size: 1.25em;
-        font-weight: 400;
-        letter-spacing: 3px;
-        color: #fff;
-    }
-
-    .navbar {
-        border-radius: 0;
-    }
-
-    .navbar-header {
-        display: none;
-    }
-
-    .navbar {
-        min-height: 0;
-    }
-
-    .navbar-default {
-        border: none;
-        background: #fff;
-        background: rgba(255,255,255,0.9);
-    }
-
-    .nav>li>a {
-        padding: 25px;
-    }
-
-    .navbar-nav>li>a {
-        line-height: normal;
-    }
-
-    .navbar-nav {
-        display: table;
-        float: none;
-        margin: 0 auto;
-        table-layout: fixed;
-        font-size: 1.25em;
-    }
-}
-
-@media screen and (max-width:768px) {
-  .navbar-brand {
-    padding: 15px;
+  .brand {
+    display: inherit;
+    margin: 0;
+    padding: 30px 0 10px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-family: "Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: normal;
+    color: #fff;
   }
-  h2 {
-      font-size: 16pt;
+
+  .top-divider {
+    margin-top: 0;
   }
-}
-@media screen and (min-width:1200px) {
-    .box:after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-}
-@media (max-width: 768px) {
-  .btn-responsive {
-    margin-top: 10px;
-    padding:4px 9px;
-    font-size:12pt;
-    line-height: 1;
+
+  .img-left {
+    float: left;
+    margin-right: 25px;
+  }
+
+  .address-bar {
+    display: inherit;
+    margin: 0;
+    padding: 0 0 40px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+
+  .navbar {
+    border-radius: 0;
+  }
+
+  .navbar-header {
+    display: none;
+  }
+
+  .navbar {
+    min-height: 0;
+  }
+
+  .navbar-default {
+    border: none;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .nav>li>a {
+    padding: 25px;
+  }
+
+  .navbar-nav>li>a {
+    line-height: normal;
+  }
+
+  .navbar-nav {
+    display: table;
+    float: none;
+    margin: 0 auto;
+    table-layout: fixed;
+    font-size: 1.25em;
   }
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
-  .btn-responsive {
-    margin-top: 10px;
-    padding:4px 9px;
-    font-size: 12pt;
-    line-height: 1.2;
-  }
-  h2 {
-      font-size: 18pt;
-  }
-
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-h2 {
-font-size: 20pt;
-}
-}
 /*My Custom Css*/
 .no-gutter > [class*='col-'] {
   padding-right: 0;
@@ -359,7 +323,18 @@ font-size: 20pt;
 .languages .btn {
   background: rgba(255,255,255,0.9);
   border-radius: 0px;
+  letter-spacing: 3px;
 }
+.copyright {
+  margin-bottom: 5px;
+}
+.youtube {
+  display: block;
+  max-width: 100%;
+  height: 400px; 
+  margin: auto;
+}
+
 @media (max-width : 1200px) {
   .languages {
     position: absolute;
@@ -371,8 +346,70 @@ font-size: 20pt;
     border-radius: 0px;
     padding: 3px 3px;
     font-size: 9pt;
+    letter-spacing: 3px;
   }
 }
-.copyright {
-  margin-bottom: 5px;
+
+@media screen and (max-width:768px) {
+  body {
+    font-size: 11pt;
+  }
+  p {
+    font-size: 11pt;
+  }
+  h2 {
+    font-size: 14pt;
+  }
+  h2 small {
+    font-size: 80%;
+  }
+  .box {
+    padding: 10px;
+  }
+  .navbar-brand {
+    padding: 15px 10px;
+  }
+
+  .btn-responsive {
+    margin-top: 10px;
+    padding:4px 9px;
+    font-size:12pt;
+    line-height: 1;
+  }
+  .post {
+    margin: 10px 0;
+    font-size: 11pt;
+  }
+  .youtube {
+    height: 250px !important;
+  }
 }
+
+@media screen and (min-width:1200px) {
+  .box:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    margin-top: 10px;
+    padding:4px 9px;
+    font-size: 12pt;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 18pt;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  h2 {
+    font-size: 20pt;
+  }
+}
+
+

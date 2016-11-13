@@ -31,6 +31,8 @@
 <!-- File Uploader Css -->
 <link rel="stylesheet" href="{% static 'ajaxuploader/css/fileuploader.css' %}">
 
+<!-- Font Awesome -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 {% block head %}
 {% endblock %}
@@ -66,43 +68,35 @@ editor.on('init', function () {
       </button>
       <a class="navbar-brand" href="{% url 'cgapp:create-news' %}">{% trans "Admin" %}</a>
     </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-      <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>{% trans "Log out" %}<b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li>
-        <a href="{% url 'cgapp:logout' %}"><i class="fa fa-fw fa-power-off"></i>{% trans "Log Out" %}</a>
-        </li>
-      </ul>
-      </li>
-    </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul id="side-nav" class="nav navbar-nav side-nav">
         <li class="news"> 
-        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Add News" %}</a>
+        <a id="default" href="{% url 'cgapp:create-news' %}"><i class="fa fa-fw fa-plus-square"></i>{% trans "Add News" %}</a>
         </li>
         <li class="project">
-        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Add Projects" %}</a>
+        <a href="{% url 'cgapp:create-project' %}"><i class="fa fa-fw fa-plus-square"></i>{% trans "Add Projects" %}</a>
         </li>
         <li class="member">
-        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-dashboard"></i>{% trans "Add Members" %}</a>
+        <a href="{% url 'cgapp:create-member' %}"><i class="fa fa-fw fa-plus-square"></i>{% trans "Add Members" %}</a>
         </li>
         <li class="partner">
-        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-dashboard"></i>{% trans "Add Partners" %}</a>
+        <a href="{% url 'cgapp:create-partner' %}"><i class="fa fa-fw fa-plus-square"></i>{% trans "Add Partners" %}</a>
         </li>
         <li class="news"> 
-        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit News" %}</a>
+        <a id="default" href="{% url 'cgapp:edit-news-list' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Edit News" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-projects-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Projects" %}</a>
+        <a id="default" href="{% url 'cgapp:edit-projects-list' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Edit Projects" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-member-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Members" %}</a>
+        <a id="default" href="{% url 'cgapp:edit-member-list' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Edit Members" %}</a>
         </li>
         <li class=""> 
-        <a id="default" href="{% url 'cgapp:edit-partners-list' %}"><i class="fa fa-fw fa-bar-chart-o"></i>{% trans "Edit Partners" %}</a>
+        <a id="default" href="{% url 'cgapp:edit-partners-list' %}"><i class="fa fa-fw fa-edit"></i>{% trans "Edit Partners" %}</a>
+        </li>
+	 <li>
+        <a href="{% url 'cgapp:logout' %}"><i class="fa fa-fw fa-power-off"></i>{% trans "Log Out" %}</a>
         </li>
       </ul>
     </div>

@@ -19,7 +19,7 @@
       </div>
       <div class="row popup-gallery no-gutter">
         {% for member in object_list|language:LANGUAGE_CODE %}
-        <div class="col-sm-4 text-center">
+        <div class="col-sm-6 col-md-4 col-lg-4 text-center">
           <a href ="{% url 'cgapp:members' member.id %}" class="portfolio-box">
             <img class="img-responsive" src="{{ member.image.medium.url }}" alt="{{ member.image.name}}">
             <div class="portfolio-box-caption green">

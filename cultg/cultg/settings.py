@@ -41,13 +41,7 @@ THUMBNAIL_ALIASES = {
         },
     }
 THUMBNAIL_TRANSPARENCY_EXTENSION = 'png'
-THUMBNAIL_PROCESSORS = (
-        'easy_thumbnails.processors.colorspace(replace_alpha=False, **kwargs)',
-        'easy_thumbnails.processors.autocrop',
-        'easy_thumbnails.processors.scale_and_crop',
-        'easy_thumbnails.processors.filters',
-        'easy_thumbnails.processors.background',
-        )
+
 # Application definition
 
 INSTALLED_APPS = [

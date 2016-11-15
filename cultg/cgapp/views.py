@@ -22,6 +22,8 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseForbidden
 from django.views.generic.detail import SingleObjectMixin
 
+from django.utils.translation import ugettext_lazy as _
+
 #Blog
 class Blog(AjaxListView):
     context_object_name = "posts"
@@ -90,16 +92,23 @@ class ProjectDetails(DetailView):
 ###Dashboard 
 
 #Create News page
-class CreateNews(LoginRequiredMixin, FormView):
+class CreateNews(SuccessMessageMixin, LoginRequiredMixin, FormView):
     form_class = NewsForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/news/add/'
     login_url = '/dashboard/'
+    success_message = _("A post was created successfully")
     def form_valid(self, form):
         news = News(name=form.cleaned_data['name'], language=form.cleaned_data['language'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
         news.save()
         form.delete_temporary_files()
         return super(CreateNews, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateNews, self).get_context_data(**kwargs)
+        context['title'] = _('News')
+        return context   
+
 
 #Edit list of News
 class NewsEditList(LoginRequiredMixin, ListView):
@@ -110,6 +119,7 @@ class NewsEditList(LoginRequiredMixin, ListView):
         context = super(NewsEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-news'
         context['delete_url'] = 'cgapp:delete-news'
+        context['title'] = _('News') 
         return context
 
 #Delete News page
@@ -126,11 +136,13 @@ class DisplayNews(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(DisplayNews, self).get_context_data(**kwargs)
         context['form'] = NewsForm()
+        context['title'] = _('News') 
         return context
 
-class UpdateNews(SingleObjectMixin, FormView):
+class UpdateNews(SuccessMessageMixin, SingleObjectMixin, FormView):
     form_class = NewsForm 
     model = News 
+    success_message = _("A post was updated successfully")
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -164,17 +176,23 @@ class EditNews(View):
         return view(request, *args, **kwargs)
 
 #Create Member page
-class CreateMember(LoginRequiredMixin, FormView):
+class CreateMember(SuccessMessageMixin, LoginRequiredMixin, FormView):
     form_class = MemberForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/members/add/'
     login_url = '/dashboard/'
+    success_message = _("A member was created successfully")
     def form_valid(self, form):
         members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
         members.save()
         form.delete_temporary_files()
         return super(CreateMember, self).form_valid(form)
-    
+ 
+    def get_context_data(self, **kwargs):
+        context = super(CreateMember, self).get_context_data(**kwargs)
+        context['title'] = _('Members')
+        return context   
+
 #Edit list of Member 
 class MemberEditList(LoginRequiredMixin, ListView):
     model = Member 
@@ -184,6 +202,7 @@ class MemberEditList(LoginRequiredMixin, ListView):
         context = super(MemberEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-member'
         context['delete_url'] = 'cgapp:delete-member'
+        context['title'] = _('Members') 
         return context
 
 #Delete Member page
@@ -200,11 +219,13 @@ class DisplayMember(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(DisplayMember, self).get_context_data(**kwargs)
         context['form'] = MemberForm()
+        context['title'] = _('Members') 
         return context
 
-class UpdateMember(SingleObjectMixin, FormView):
+class UpdateMember(SuccessMessageMixin, SingleObjectMixin, FormView):
     form_class = MemberForm 
     model = Member 
+    success_message = _("A member was updated successfully")
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -240,17 +261,24 @@ class EditMember(View):
         return view(request, *args, **kwargs)
 
 #Create Project page
-class CreateProject(LoginRequiredMixin, FormView):
+class CreateProject(SuccessMessageMixin, LoginRequiredMixin, FormView):
     form_class = ProjectForm
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/projects/add/'
     login_url = '/dashboard/'
+    success_message = _("A project was created successfully")
+
     def form_valid(self, form):
         project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], language=form.cleaned_data['language'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
         form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
-    
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateProject, self).get_context_data(**kwargs)
+        context['title'] = _('Projects')
+        return context   
+
 #Edit list of Projects 
 class ProjectsEditList(LoginRequiredMixin, ListView):
     model = Project 
@@ -260,6 +288,7 @@ class ProjectsEditList(LoginRequiredMixin, ListView):
         context = super(ProjectsEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-project'
         context['delete_url'] = 'cgapp:delete-project'
+        context['title'] = _('Projects') 
         return context
 
 #Delete Project page
@@ -276,11 +305,13 @@ class DisplayProject(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(DisplayProject, self).get_context_data(**kwargs)
         context['form'] = ProjectForm()
+        context['title'] = _('Projects') 
         return context
 
-class UpdateProject(SingleObjectMixin, FormView):
+class UpdateProject(SuccessMessageMixin, SingleObjectMixin, FormView):
     form_class = ProjectForm 
     model = Project
+    success_message = _("A project was updated successfully")
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -316,17 +347,22 @@ class EditProject(View):
         return view(request, *args, **kwargs)
 
 #Create Partner Icon
-class CreatePartner(LoginRequiredMixin, SuccessMessageMixin, FormView):
+class CreatePartner(SuccessMessageMixin, LoginRequiredMixin, FormView):
     form_class = PartnerForm 
     template_name = 'cgapp/create.html'
     success_url = '/dashboard/partner/add/'
     login_url = '/dashboard/'
-    success_message = "Partner was created successfully"
+    success_message = _("A partner was created successfully")
     def form_valid(self, form):
         partner = Partner(name=form.cleaned_data['name'], image=form.cleaned_data['image'])
         partner.save()
         form.delete_temporary_files()
         return super(CreatePartner, self).form_valid(form)
+    def get_context_data(self, **kwargs):
+        context = super(CreatePartner, self).get_context_data(**kwargs)
+        context['title'] = _('Partners')
+        return context
+
 
 #Edit list of Partners 
 class PartnersEditList(LoginRequiredMixin, ListView):
@@ -337,6 +373,7 @@ class PartnersEditList(LoginRequiredMixin, ListView):
         context = super(PartnersEditList, self).get_context_data(**kwargs)
         context['edit_url'] = 'cgapp:edit-partner'
         context['delete_url'] = 'cgapp:delete-partner'
+        context['title'] = _('Partners') 
         return context
 
 #Delete Parnter page
@@ -352,11 +389,13 @@ class DisplayPartner(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(DisplayPartner, self).get_context_data(**kwargs)
         context['form'] = PartnerForm()
+        context['title'] = _('Partners') 
         return context
 
-class UpdatePartner(SingleObjectMixin, FormView):
+class UpdatePartner(SuccessMessageMixin, SingleObjectMixin, FormView):
     form_class = PartnerForm 
     model = Partner 
+    success_message = _("A partner was updated successfully")
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

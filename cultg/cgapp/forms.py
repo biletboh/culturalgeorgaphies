@@ -3,15 +3,17 @@ from django_file_form.forms import FileFormMixin, UploadedFileField
 from form_utils import forms as betterforms
 from tinymce.widgets import TinyMCE
 from django.forms.widgets import HiddenInput
-## Language choices 
+from django.utils.translation import ugettext_lazy as _
 
+## Language choices 
 LANGUAGES = (('English', 'English'), ('Українська', 'Українська'))
+
 # Form for creation of News 
 class NewsForm(FileFormMixin, betterforms.BetterForm):
-    name = forms.CharField()
-    language = forms.ChoiceField(choices=LANGUAGES)
-    body = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required=False)
-    image = UploadedFileField(required = False)
+    name = forms.CharField(label=_("name"))
+    language = forms.ChoiceField(label=_("мова"), choices=LANGUAGES)
+    body = forms.CharField(label=_("body"), widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required=False)
+    image = UploadedFileField(label=_("image"), required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
@@ -25,11 +27,11 @@ class NewsForm(FileFormMixin, betterforms.BetterForm):
                      ]
 # Form for creations of Members
 class MemberForm(FileFormMixin, betterforms.BetterForm):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    language = forms.ChoiceField(choices=LANGUAGES)
-    description = forms.CharField(widget=forms.Textarea)
-    image = UploadedFileField(required = False)
+    first_name = forms.CharField(label=_("first_name"))
+    last_name = forms.CharField(label=_("last_name"))
+    language = forms.ChoiceField(label=_("language"), choices=LANGUAGES)
+    description = forms.CharField(label=_("description"), widget=forms.Textarea)
+    image = UploadedFileField(label=_("image"), required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
@@ -42,15 +44,16 @@ class MemberForm(FileFormMixin, betterforms.BetterForm):
                      ]
 
 # Form for creations of Projects
+
 ### Categories for projets 
-CATEGORIES = (('Children geographies', 'Children geographies'), ('Development of territories', 'Development of territories'))
+CATEGORIES = (("Children's geographies", _("Children's geographies")), ('Development of territories', _('Development of territories')))
 
 class ProjectForm(FileFormMixin, betterforms.BetterForm):
-    name = forms.CharField()
-    description = forms.CharField(widget=forms.Textarea, required = False)
-    category = forms.ChoiceField(choices=CATEGORIES)
-    language = forms.ChoiceField(choices=LANGUAGES)
-    image = UploadedFileField(required = False)
+    name = forms.CharField(label=_("name"))
+    description = forms.CharField(label=_("description"), widget=forms.Textarea, required = False)
+    category = forms.ChoiceField(label=_("category"), choices=CATEGORIES)
+    language = forms.ChoiceField(label=_("language"), choices=LANGUAGES)
+    image = UploadedFileField(label=_("image"), required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
@@ -63,8 +66,8 @@ class ProjectForm(FileFormMixin, betterforms.BetterForm):
                      ]
 # Form for creations of Partners 
 class PartnerForm(FileFormMixin, betterforms.BetterForm):
-    name = forms.CharField()
-    image = UploadedFileField(required = False)
+    name = forms.CharField(label=_("name"))
+    image = UploadedFileField(label=_("image"), required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)
     upload_url = forms.CharField(widget = forms.HiddenInput(), required = False)
     delete_url = forms.CharField(widget = forms.HiddenInput(), required = False)
@@ -74,5 +77,4 @@ class PartnerForm(FileFormMixin, betterforms.BetterForm):
         fieldsets = [('main', {'fields': ['name', ], 'legend': 'main', }),
                 ('images', {'fields': ['image'] + ['form_id', 'upload_url', 'delete_url'], 'legend': 'images'}),
                      ]
-
 

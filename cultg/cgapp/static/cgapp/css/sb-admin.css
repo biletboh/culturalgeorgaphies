@@ -276,3 +276,14 @@ ul.alert-dropdown {
   margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0.1);
 }
+.message-top {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #5cb85c;
+}
+.messages {
+  padding-left: 10px;
+}
+.message-top ul {
+  list-style: none;
+}

@@ -28,7 +28,8 @@
 -->
 <script src="{% static 'cgapp/js/jquery.js' %}"></script>
 
-<script src="{% static 'cgapp/js/bootstrap.js' %}"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <!-- Custom CSS -->
 
 <link href="{% static 'cgapp/css/base.css' %}" rel="stylesheet">
@@ -40,7 +41,7 @@
 <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&subset=cyrillic,cyrillic-ext" rel="stylesheet"> 
 
 <!-- Font Awesome -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://use.fontawesome.com/dba3bfc23e.js"></script>
 
 <!-- Ellipsis -->
 <script src="{% static 'cgapp/js/jquery.dotdotdot.js' %}"></script>
@@ -86,7 +87,9 @@ paginateOnScrollChunkSize: 5
 </div>
 
 <div class="brand">{% trans "Cultural geographies" %}</div>
-<div class="address-bar">childrensgeo@gmail.com facebook.com/childrensgeographies</div>
+<div class="address-bar">
+  <i class="fa fa-envelope-o" aria-hidden="true"></i> childrensgeo@gmail.com    
+  <i class="fa fa-facebook-official" aria-hidden="true"></i> facebook.com/childrensgeographies</div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -142,7 +145,7 @@ paginateOnScrollChunkSize: 5
         <ul class="list-inline logo-partners">
           {% for partner in partners %}
           <li>
-          <img class="img-responsive img-circle" src="{{ partner.image.extra_small.url }}" alt="{{parner.image.name}}">
+          <img class="img-responsive" src="{{ partner.image.small.url }}" alt="{{parner.image.name}}">
           {% endfor %}
           </li>
         </ul>

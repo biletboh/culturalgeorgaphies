@@ -27,8 +27,8 @@ class NewsForm(FileFormMixin, betterforms.BetterForm):
                      ]
 # Form for creations of Members
 class MemberForm(FileFormMixin, betterforms.BetterForm):
-    first_name = forms.CharField(label=_("first_name"))
-    last_name = forms.CharField(label=_("last_name"))
+    first_name = forms.CharField(label=_("first name"))
+    last_name = forms.CharField(label=_("last name"))
     language = forms.ChoiceField(label=_("language"), choices=LANGUAGES)
     description = forms.CharField(label=_("description"), widget=forms.Textarea)
     image = UploadedFileField(label=_("image"), required = False)

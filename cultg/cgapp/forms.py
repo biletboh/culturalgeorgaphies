@@ -11,7 +11,7 @@ LANGUAGES = (('English', 'English'), ('Українська', 'Українсь�
 # Form for creation of News 
 class NewsForm(FileFormMixin, betterforms.BetterForm):
     name = forms.CharField(label=_("name"))
-    language = forms.ChoiceField(label=_("мова"), choices=LANGUAGES)
+    language = forms.ChoiceField(label=_("language"), choices=LANGUAGES)
     body = forms.CharField(label=_("body"), widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required=False)
     image = UploadedFileField(label=_("image"), required = False)
     form_id = forms.CharField(widget = forms.HiddenInput(), required = False)

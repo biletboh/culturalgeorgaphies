@@ -6,7 +6,7 @@ from tinymce.models import HTMLField
 
 class News(models.Model):
     name = models.CharField(max_length=200)
-    body = models.CharField(max_length=6000)
+    body = HTMLField() 
     pub_date = models.DateTimeField(default=timezone.now)
     language = models.CharField(max_length=200)
     image = ThumbnailerImageField(upload_to='photos/blog', blank=True) 

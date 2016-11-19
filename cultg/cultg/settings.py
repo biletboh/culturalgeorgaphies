@@ -45,6 +45,9 @@ THUMBNAIL_TRANSPARENCY_EXTENSION = 'png'
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
+    'filebrowser',
+    'tinymce',
     'cgapp.apps.CgappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +59,6 @@ INSTALLED_APPS = [
     'django_file_form',
     'django_file_form.ajaxuploader',
     'widget_tweaks',
-    'tinymce',
     'el_pagination',
 ]
 
@@ -86,8 +88,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
-        },
+                ],
+            },
     },
 ]
 
@@ -209,7 +211,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 #TinyMCE config
-TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_JS_URL = STATIC_URL + 'tiny_mce/tiny_mce.js' 
 TINYMCE_DEFAULT_CONFIG = {
         'plugins': "table,spellchecker,paste,searchreplace",
         'theme': "advanced",
@@ -218,5 +220,6 @@ TINYMCE_DEFAULT_CONFIG = {
         }
 TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = True
+TINYMCE_FILEBROWSER = True 
 
 LOGIN_REDIRECT_URL = '/dashboard/news/add/'

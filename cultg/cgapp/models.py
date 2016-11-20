@@ -7,9 +7,12 @@ from tinymce.models import HTMLField
 class News(models.Model):
     name = models.CharField(max_length=200)
     body = HTMLField() 
-    pub_date = models.DateTimeField(default=timezone.now)
+    pub_date = models.DateTimeField(default=timezone.datetime.now)
     language = models.CharField(max_length=200)
     image = ThumbnailerImageField(upload_to='photos/blog', blank=True) 
+    
+    class Meta:
+        ordering = ('-pub_date',)
 
 #Members Model
 class Member(models.Model):
@@ -20,6 +23,9 @@ class Member(models.Model):
     language = models.CharField(max_length=200)
     image = ThumbnailerImageField(upload_to='photos/members', blank=True) 
 
+    class Meta:
+        ordering = ('-pub_date',)
+
 #Projects Model
 class Project(models.Model):
     name = models.CharField(max_length=200)
@@ -28,6 +34,9 @@ class Project(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)
     language = models.CharField(max_length=200)
     image = ThumbnailerImageField(upload_to='photos/projects', blank=True) 
+
+    class Meta:
+        ordering = ('-pub_date',)
 
 #Partners Model
 class Partner(models.Model):

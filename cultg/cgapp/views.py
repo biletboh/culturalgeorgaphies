@@ -99,7 +99,7 @@ class CreateNews(SuccessMessageMixin, LoginRequiredMixin, FormView):
     login_url = '/dashboard/'
     success_message = _("A post was created successfully")
     def form_valid(self, form):
-        news = News(name=form.cleaned_data['name'], language=form.cleaned_data['language'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
+        news = News(name=form.cleaned_data['name'], language=form.cleaned_data['language'], pub_date=form.cleaned_data['pub_date'], body=form.cleaned_data['body'], image=form.cleaned_data['image'])
         news.save()
         form.delete_temporary_files()
         return super(CreateNews, self).form_valid(form)
@@ -154,6 +154,7 @@ class UpdateNews(SuccessMessageMixin, SingleObjectMixin, FormView):
         news = News.objects.get(**params)
         news.name = form.cleaned_data['name'] 
         news.language=form.cleaned_data['language']
+        news.pub_date=form.cleaned_data['pub_date']
         news.body = form.cleaned_data['body'] 
         image = form.cleaned_data['image']
         if image: 
@@ -183,7 +184,7 @@ class CreateMember(SuccessMessageMixin, LoginRequiredMixin, FormView):
     login_url = '/dashboard/'
     success_message = _("A member was created successfully")
     def form_valid(self, form):
-        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
+        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], pub_date=form.cleaned_data['pub_date'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
         members.save()
         form.delete_temporary_files()
         return super(CreateMember, self).form_valid(form)
@@ -239,6 +240,7 @@ class UpdateMember(SuccessMessageMixin, SingleObjectMixin, FormView):
         member.first_name=form.cleaned_data['first_name'] 
         member.last_name=form.cleaned_data['last_name'] 
         member.language=form.cleaned_data['language']
+        member.pub_date=form.cleaned_data['pub_date']
         member.description=form.cleaned_data['description'] 
         image=form.cleaned_data['image']
         if image: 
@@ -269,7 +271,7 @@ class CreateProject(SuccessMessageMixin, LoginRequiredMixin, FormView):
     success_message = _("A project was created successfully")
 
     def form_valid(self, form):
-        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], language=form.cleaned_data['language'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
+        project = Project(name=form.cleaned_data['name'], description=form.cleaned_data['description'], language=form.cleaned_data['language'], pub_date=form.cleaned_data['pub_date'], category=form.cleaned_data['category'], image=form.cleaned_data['image'])
         project.save()
         form.delete_temporary_files()
         return super(CreateProject, self).form_valid(form)
@@ -325,6 +327,7 @@ class UpdateProject(SuccessMessageMixin, SingleObjectMixin, FormView):
         project.name=form.cleaned_data['name'] 
         project.category=form.cleaned_data['category'] 
         project.language=form.cleaned_data['language']
+        project.pub_date=form.cleaned_data['pub_date']
         project.description=form.cleaned_data['description'] 
         image=form.cleaned_data['image']
         if image: 

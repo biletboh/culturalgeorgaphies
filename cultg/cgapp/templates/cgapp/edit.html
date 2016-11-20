@@ -9,6 +9,7 @@
 {% load object_attributes %}
 {% load choices %}
 {% load i18n %}
+{% load tz %}
 
 <div class="dashboard-header">
   {% trans "Edit" %} {{title}} 
@@ -24,6 +25,8 @@
   </ul>
 </div>
 {% endif %}
+
+{% timezone "Europe/Kiev" %}
 <form action="" id="edit-form" name="create-form" enctype="multipart/form-data" method="post">
   {% csrf_token %}
   {% render_field form.object_id value=object.id %}
@@ -35,6 +38,7 @@
         {% if fieldset.description %}
         <p class="description">{{ fieldset.description }}</p>
         {% endif %}
+
         {% for field in fieldset %}
         {% if field.is_hidden %}
         {{ field }}
@@ -76,6 +80,8 @@
   <div id="test">
   </div>
 </form>
+{% endtimezone %}
+
 {% include 'cgapp/upload_template.html' %}
 <script type="text/javascript">
 $(function() {

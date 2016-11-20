@@ -7,6 +7,8 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load i18n %}
+{% load tz %}
+
 <div class="dashboard-header">
   {% trans "Add" %} {{title}} 
 </div>
@@ -21,6 +23,8 @@
   </ul>
 </div>
 {% endif %}
+
+{% timezone "Europe/Kiev" %}
 <form action="" name="create-form" id="create-form" enctype="multipart/form-data" method="post">
   {% csrf_token %}
   <div class="row">
@@ -66,7 +70,7 @@
     </div>
   </div>
 </form>
-
+{% endtimezone %}
 
 {% include 'cgapp/upload_template.html' %}
 <script type="text/javascript">

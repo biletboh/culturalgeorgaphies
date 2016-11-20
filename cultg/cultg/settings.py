@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django_file_form.ajaxuploader',
     'widget_tweaks',
     'el_pagination',
+    'datetimewidget',
 ]
 
 MIDDLEWARE = [

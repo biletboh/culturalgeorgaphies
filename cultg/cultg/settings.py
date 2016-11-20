@@ -45,10 +45,10 @@ THUMBNAIL_TRANSPARENCY_EXTENSION = 'png'
 # Application definition
 
 INSTALLED_APPS = [
+    'cgapp.apps.CgappConfig',
     'grappelli',
     'filebrowser',
     'tinymce',
-    'cgapp.apps.CgappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

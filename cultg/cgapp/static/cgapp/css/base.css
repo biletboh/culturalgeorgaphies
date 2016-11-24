@@ -429,6 +429,12 @@ footer p {
   .address-bar {
     font-size: 16pt;
   }
+  .post, .description {
+    margin: 0;
+  }
+  .img-border-left {
+    margin-top: 5px;
+  }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 12pt;
   }
@@ -461,8 +467,15 @@ footer p {
   h2 {
     font-size: 18pt;
   }
+  .img-border-left {
+    margin-top: 5px;
+  }
   .intro-text {
     font-size: 16pt;
+  }
+
+  .post, .description {
+    margin: 0;
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 12pt;

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 19:23-0500\n"
+"POT-Creation-Date: 2016-11-24 05:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,43 +19,47 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: cgapp/forms.py:13 cgapp/forms.py:52 cgapp/forms.py:69
+#: cgapp/forms.py:15 cgapp/forms.py:56 cgapp/forms.py:74
 msgid "name"
 msgstr "назва"
 
-#: cgapp/forms.py:14 cgapp/forms.py:32 cgapp/forms.py:55
+#: cgapp/forms.py:16 cgapp/forms.py:35 cgapp/forms.py:58
 msgid "language"
 msgstr "мова"
 
-#: cgapp/forms.py:15
+#: cgapp/forms.py:17 cgapp/forms.py:36 cgapp/forms.py:59
+msgid "publication date"
+msgstr ""
+
+#: cgapp/forms.py:18
 msgid "body"
 msgstr "текст"
 
-#: cgapp/forms.py:16 cgapp/forms.py:34 cgapp/forms.py:56 cgapp/forms.py:70
+#: cgapp/forms.py:19 cgapp/forms.py:38 cgapp/forms.py:61 cgapp/forms.py:75
 msgid "image"
 msgstr "світлина"
 
-#: cgapp/forms.py:30
+#: cgapp/forms.py:33
 msgid "first name"
 msgstr "ім'я"
 
-#: cgapp/forms.py:31
+#: cgapp/forms.py:34
 msgid "last name"
 msgstr "прізвище"
 
-#: cgapp/forms.py:33 cgapp/forms.py:53
+#: cgapp/forms.py:37 cgapp/forms.py:60
 msgid "description"
 msgstr "oпис"
 
-#: cgapp/forms.py:49 cgapp/templates/cgapp/about.html:37
+#: cgapp/forms.py:53 cgapp/templates/cgapp/about.html:37
 msgid "Children's geographies"
 msgstr "Дитячі географії"
 
-#: cgapp/forms.py:49
+#: cgapp/forms.py:53
 msgid "Development of territories"
 msgstr "Розвиток територій та просторів"
 
-#: cgapp/forms.py:54
+#: cgapp/forms.py:57
 msgid "category"
 msgstr "категорія"
 
@@ -86,7 +90,7 @@ msgid "Team"
 msgstr "Команда"
 
 #: cgapp/templates/cgapp/base.html:121 cgapp/templates/cgapp/projects.html:15
-#: cgapp/views.py:279 cgapp/views.py:291 cgapp/views.py:308
+#: cgapp/views.py:281 cgapp/views.py:293 cgapp/views.py:310
 msgid "Projects"
 msgstr "Проекти"
 
@@ -102,15 +106,11 @@ msgstr "Зроблено"
 msgid "blog"
 msgstr "блог"
 
-#: cgapp/templates/cgapp/blog.html:19
-msgid " of Cultural Geographies"
-msgstr " Культурних географій"
-
-#: cgapp/templates/cgapp/create.html:11
+#: cgapp/templates/cgapp/create.html:13
 msgid "Add"
 msgstr "Додати"
 
-#: cgapp/templates/cgapp/create.html:65 cgapp/templates/cgapp/edit.html:73
+#: cgapp/templates/cgapp/create.html:69 cgapp/templates/cgapp/edit.html:77
 msgid "Submit"
 msgstr "Опублікувати"
 
@@ -118,47 +118,47 @@ msgstr "Опублікувати"
 msgid "Admin Page"
 msgstr "Адмінка"
 
-#: cgapp/templates/cgapp/dashboard.html:69
+#: cgapp/templates/cgapp/dashboard.html:73
 msgid "Admin"
 msgstr "Адмін"
 
-#: cgapp/templates/cgapp/dashboard.html:75
+#: cgapp/templates/cgapp/dashboard.html:79
 msgid "Add News"
 msgstr "Додати Новини"
 
-#: cgapp/templates/cgapp/dashboard.html:78
+#: cgapp/templates/cgapp/dashboard.html:82
 msgid "Add Projects"
 msgstr "Додати Проекти"
 
-#: cgapp/templates/cgapp/dashboard.html:81
+#: cgapp/templates/cgapp/dashboard.html:85
 msgid "Add Members"
 msgstr "Додати Учасників"
 
-#: cgapp/templates/cgapp/dashboard.html:84
+#: cgapp/templates/cgapp/dashboard.html:88
 msgid "Add Partners"
 msgstr "Додати Партнерів"
 
-#: cgapp/templates/cgapp/dashboard.html:87
+#: cgapp/templates/cgapp/dashboard.html:91
 msgid "Edit News"
 msgstr "Редагувати Новини"
 
-#: cgapp/templates/cgapp/dashboard.html:90
+#: cgapp/templates/cgapp/dashboard.html:94
 msgid "Edit Projects"
 msgstr "Редагувати Проекти"
 
-#: cgapp/templates/cgapp/dashboard.html:93
+#: cgapp/templates/cgapp/dashboard.html:97
 msgid "Edit Members"
 msgstr "Редагувати Учасників"
 
-#: cgapp/templates/cgapp/dashboard.html:96
+#: cgapp/templates/cgapp/dashboard.html:100
 msgid "Edit Partners"
 msgstr "Редагувати Партнерів"
 
-#: cgapp/templates/cgapp/dashboard.html:99
+#: cgapp/templates/cgapp/dashboard.html:103
 msgid "Log Out"
 msgstr "Вийти"
 
-#: cgapp/templates/cgapp/edit.html:14 cgapp/templates/cgapp/editlist.html:8
+#: cgapp/templates/cgapp/edit.html:15 cgapp/templates/cgapp/editlist.html:8
 msgid "Edit"
 msgstr "Редагувати"
 
@@ -168,13 +168,13 @@ msgstr "Увійти в адмінку"
 
 #: cgapp/templates/cgapp/login.html:37
 msgid "Log in"
-msgstr "Вийти"
+msgstr "Увійти"
 
 #: cgapp/templates/cgapp/login.html:62
 msgid "Your username and password didn't match. Please try again."
 msgstr "Ваше ім'я та пароль підходять. Будь ласка, спробуйте ще раз."
 
-#: cgapp/templates/cgapp/post_list.html:23
+#: cgapp/templates/cgapp/post_list.html:20
 msgid "Read More"
 msgstr "Читати далі"
 
@@ -198,34 +198,35 @@ msgstr "Новини"
 msgid "A post was updated successfully"
 msgstr "Публікацію оновлено успішно"
 
-#: cgapp/views.py:184
+#: cgapp/views.py:185
 msgid "A member was created successfully"
 msgstr "Учасника створено успішно"
 
-#: cgapp/views.py:193 cgapp/views.py:205 cgapp/views.py:222
+#: cgapp/views.py:194 cgapp/views.py:206 cgapp/views.py:223
 msgid "Members"
 msgstr "Учасників"
 
-#: cgapp/views.py:228
+#: cgapp/views.py:229
 msgid "A member was updated successfully"
 msgstr "Учасника оновлено успішно"
 
-#: cgapp/views.py:269
+#: cgapp/views.py:271
 msgid "A project was created successfully"
 msgstr "Проект створено успішно"
 
-#: cgapp/views.py:314
+#: cgapp/views.py:316
 msgid "A project was updated successfully"
 msgstr "Проект оновлено успішно"
 
-#: cgapp/views.py:355
+#: cgapp/views.py:358
 msgid "A partner was created successfully"
 msgstr "Партнера створено успішно"
 
-#: cgapp/views.py:363 cgapp/views.py:376 cgapp/views.py:392
+#: cgapp/views.py:366 cgapp/views.py:379 cgapp/views.py:395
 msgid "Partners"
 msgstr "Партнерів"
 
-#: cgapp/views.py:398
+#: cgapp/views.py:401
 msgid "A partner was updated successfully"
 msgstr "Партнера оновлено успішно"
+

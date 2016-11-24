@@ -17,7 +17,7 @@
         <hr>
       </div>
       <div class="row no-gutter popup-gallery">
-        {% for project in object_list|language:LANGUAGE_CODE reversed %}
+        {% for project in object_list|language:LANGUAGE_CODE %}
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <a href ="{% url 'cgapp:project-page' project.id %}" class="portfolio-box">
             <img class="img-responsive" src="{{ project.image.medium.url }}" alt="">

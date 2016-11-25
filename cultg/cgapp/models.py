@@ -44,4 +44,4 @@ class Partner(models.Model):
     description = models.CharField(max_length=1000)
     pub_date = models.DateTimeField(default=timezone.now)
     language = models.CharField(max_length=200)
-    image = ThumbnailerImageField(upload_to='photos/projects', blank=True) 
+    image = ThumbnailerImageField(upload_to='photos/partners', blank=True) 

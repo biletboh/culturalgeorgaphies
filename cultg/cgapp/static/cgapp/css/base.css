@@ -35,7 +35,13 @@ hr {
   max-width: 400px;
   border-color: #999999;
 }
-
+.address-bar > a {
+  color: rgb(255,255,255);
+  text-decoration: none;
+}
+.address-bar > a:hover, .address-bar > a:focus {
+  color: rgba(225,255,255,0.8);
+}
 .brand,
 .address-bar {
   display: none;
@@ -290,9 +296,12 @@ footer p {
 }
 
 .social-facebook {
-  position: absolute;
+/*  position: absolute;
   top: 25px;
   right: 35px;
+  */
+  position: relative;
+  margin: auto;
   background-color: #3b5998;
   width: 50px; 
   height: 50px; 
@@ -308,6 +317,15 @@ footer p {
   line-height: 50px; 
   font-size: 25px; 
   color: white; 
+}
+.appear {
+  visibility: visible;  
+  -webkit-transform: scale(1); 
+  opacity: 1;
+  transform: scale(1); 
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; 
+  transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; 
 }
 
 .languages {
@@ -335,7 +353,12 @@ footer p {
   height: 400px; 
   margin: auto;
 }
-
+.about {
+  margin-top: 20px;
+}
+.img-about {
+  margin: auto;
+}
 /* Responsive desing */
 
 @media screen and (max-width:768px) {
@@ -369,6 +392,9 @@ footer p {
     margin: 10px 0;
     font-size: 11pt;
   }
+  .about {
+    margin-top: 10px;
+  }
   .youtube {
     height: 250px !important;
   }
@@ -386,6 +412,10 @@ footer p {
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 16pt;
+  }
+  .img-about {
+    max-width: 85%;
+    margin: auto;
   }
 }
 @media (min-width: 769px) and (max-width: 992px) {
@@ -435,11 +465,17 @@ footer p {
   .img-border-left {
     margin-top: 5px;
   }
+  .heading-align {
+    margin-top: 25px;
+  }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 12pt;
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 16pt;
+  }
+  .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .about {
+    font-size: 18pt;
   }
 }
 
@@ -482,6 +518,9 @@ footer p {
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 16pt;
+  }
+  .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .about {
+    font-size: 18pt;
   }
 }
 

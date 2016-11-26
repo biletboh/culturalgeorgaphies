@@ -20,7 +20,7 @@
         {% for project in object_list|language:LANGUAGE_CODE %}
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <a href ="{% url 'cgapp:project-page' project.id %}" class="portfolio-box">
-            <img class="img-responsive" src="{{ project.image.medium.url }}" alt="">
+            <img class="img-responsive" src="{{ project.image.medium.url }}" alt="{{ project.image.name }}">
             <div class="portfolio-box-caption 
               {% if project.category == "Development of territories" %} green {% endif %}">
               <div class="portfolio-box-caption-content">

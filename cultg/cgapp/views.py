@@ -184,7 +184,7 @@ class CreateMember(SuccessMessageMixin, LoginRequiredMixin, FormView):
     login_url = '/dashboard/'
     success_message = _("A member was created successfully")
     def form_valid(self, form):
-        members = Member(first_name=form.cleaned_data['first_name'], last_name=form.cleaned_data['last_name'], language=form.cleaned_data['language'], pub_date=form.cleaned_data['pub_date'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
+        members = Member(name=form.cleaned_data['name'], position=form.cleaned_data['position'], language=form.cleaned_data['language'], pub_date=form.cleaned_data['pub_date'], description=form.cleaned_data['description'], image=form.cleaned_data['image'])
         members.save()
         form.delete_temporary_files()
         return super(CreateMember, self).form_valid(form)
@@ -237,8 +237,8 @@ class UpdateMember(SuccessMessageMixin, SingleObjectMixin, FormView):
         params = { 'pk': form.cleaned_data['object_id'] }
         member = Member.objects.get(**params)
 
-        member.first_name=form.cleaned_data['first_name'] 
-        member.last_name=form.cleaned_data['last_name'] 
+        member.name=form.cleaned_data['name'] 
+        member.position=form.cleaned_data['position'] 
         member.language=form.cleaned_data['language']
         member.pub_date=form.cleaned_data['pub_date']
         member.description=form.cleaned_data['description'] 

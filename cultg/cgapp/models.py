@@ -16,8 +16,8 @@ class News(models.Model):
 
 #Members Model
 class Member(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
+    name = models.CharField(max_length=256)
+    position = models.CharField(max_length=200)
     description = HTMLField()
     pub_date = models.DateTimeField(default=timezone.now)
     language = models.CharField(max_length=200)

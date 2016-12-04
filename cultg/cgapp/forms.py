@@ -30,8 +30,8 @@ class NewsForm(FileFormMixin, betterforms.BetterForm):
                      ]
 # Form for creations of Members
 class MemberForm(FileFormMixin, betterforms.BetterForm):
-    first_name = forms.CharField(label=_("first name"), max_length=200)
-    last_name = forms.CharField(label=_("last name"), max_length=200)
+    name = forms.CharField(label=_("name"), max_length=256)
+    position = forms.CharField(label=_("position"), max_length=200)
     language = forms.ChoiceField(label=_("language"), choices=LANGUAGES)
     pub_date = forms.DateTimeField(label=_("publication date"), widget=DateTimeWidget(usel10n=True, bootstrap_version=3), initial=timezone.now)
     description = forms.CharField(label=_("description"), widget=TinyMCE(attrs={'cols': 80, 'rows': 15}), required=False)
@@ -42,7 +42,7 @@ class MemberForm(FileFormMixin, betterforms.BetterForm):
     object_id = forms.CharField(widget = forms.HiddenInput(), required = False)
 
     class Meta:
-        fieldsets = [('main', {'fields': ['first_name', 'last_name', 'language', 'pub_date'], 'legend': 'main', }),
+        fieldsets = [('main', {'fields': ['name', 'position', 'language', 'pub_date'], 'legend': 'main', }),
                 ('text-area', {'fields': ['description'], 'legend': 'text-area'}),
                 ('images', {'fields': ['image'] + ['form_id', 'upload_url', 'delete_url'], 'legend': 'images'}),
                      ]

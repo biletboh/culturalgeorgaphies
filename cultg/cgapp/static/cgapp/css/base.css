@@ -434,6 +434,7 @@ footer p {
   .intro-text {
     font-size: 14pt;
   }
+  
   .post, .description {
     margin: 10px 0;
     font-size: 11pt;
@@ -459,7 +460,13 @@ footer p {
   .address-bar {
     font-size: 16pt;
   }
-  .post, .description {
+  .box {
+    padding: 30px;
+  }
+  .post {
+    margin: 15px 0;
+  } 
+  .description {
     margin: 0;
   }
   .img-border-left {
@@ -509,8 +516,10 @@ footer p {
   .intro-text {
     font-size: 16pt;
   }
-
-  .post, .description {
+  .post {
+    margin: 20px 0;
+  }
+  .description {
     margin: 0;
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {

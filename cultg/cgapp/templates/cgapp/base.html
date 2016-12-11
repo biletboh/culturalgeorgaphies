@@ -116,14 +116,17 @@ paginateOnScrollChunkSize: 5
         </li>
         <li>
         <a href="{% url 'cgapp:projects' %}">{% trans "Projects" %}</a>
-	</li>
-	</ul>
-	<div class="nav nav-lang hidden-sm hidden-md hidden-lg text-right">
-	<button class="btn btn-default" id="en" value="en" type="button">EN</button>
-	<button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
-	</div>
+        </li>
+        <li class="hidden-md hidden-lg hidden-sm">
+        <a href="{% url 'cgapp:contacts' %}">{% trans "Contacts" %}</a>
+        </li>
+      </ul>
+      <div class="nav nav-lang hidden-sm hidden-md hidden-lg text-right">
+        <button class="btn btn-default" id="en" value="en" type="button">EN</button>
+        <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
+      </div>
 
-	</div>
+    </div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container -->

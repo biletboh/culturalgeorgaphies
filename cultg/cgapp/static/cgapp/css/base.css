@@ -25,7 +25,7 @@ h6 {
   letter-spacing: 1px;
 }
 
-p {
+p, ul {
   font-size: 12pt;
   line-height: 1.6;
   color: #000;
@@ -371,11 +371,6 @@ footer p {
 .img-about {
   margin: auto;
 }
-.about-list {
-  font-size: 12pt;
-  line-height: 1.6;
-  color: #000;
-}
 
 /* Responsive desing */
 
@@ -383,7 +378,7 @@ footer p {
   body {
     font-size: 11pt;
   }
-  p {
+  p, ul {
     font-size: 11pt;
   }
   h2 {
@@ -422,6 +417,9 @@ footer p {
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 14pt;
   }
+  .about-description {
+    margin-top: 10px
+  }
 }
 
 @media (min-width: 480px) and (max-width:768px) {
@@ -430,10 +428,6 @@ footer p {
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 16pt;
-  }
-  .img-about {
-    max-width: 85%;
-    margin: auto;
   }
 }
 @media (min-width: 769px) and (max-width: 992px) {

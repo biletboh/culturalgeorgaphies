@@ -8,84 +8,106 @@
 
   <div class="row">
     <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center"> 
-          <strong>{% trans "About" %}</strong>
-        </h2>
-        <hr>
-      </div>
-      <div class="col-md-12 text-center">
-        <p>{% trans "<strong>Cultural geographies</strong> is a non-governmental organization which operates on the national level and based in Kyiv, Ukraine. It was established in 2015 after Children's geographies as an initiative had started to operate regularly and in wide collaborations with different organizations and projects. Please read more on our main directions below and contact us for any further cooperation." %}
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="box">
-      <div class="col-lg-6 col-md-6">
+      <div class="row">
         <div class="col-lg-12 col-md-12">
           <hr>
-          <h2 class="intro-text text-center">
-            <strong>{% trans "Children's geographies" %}</strong>
+          <h2 class="intro-text text-center"> 
+            <strong>{% trans "About" %}</strong>
           </h2>
           <hr>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
-          <a href="{% url 'cgapp:projects' %}" class="portfolio-box">
-            <img class="img-responsive img-border-left img-about heading-align" src="{% static 'cgapp/img/chg_logo.jpg' %}" alt="logo of children geographies">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded about">
-                  {% trans "Check out our projects!" %}
+          <p>{% trans "<strong>Cultural Geographies</strong> is an non-governmental organization based in Kyiv, Ukraine, that seeks to promote the development of civil society by strengthening the impact of the cultural sector and community interaction at regional, national and international levels." %}
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-md-4">
+            <a href="{% url 'cgapp:projects' %}" class="portfolio-box about-logo">
+              <img class="img-responsive img-border-left img-about" src="{% static 'cgapp/img/cg_logo.png' %}" alt="logo of cultural geographies">
+              <div class="portfolio-box-caption green">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded about">
+                    {% trans "Our projects!" %}
+                  </div>
                 </div>
               </div>
-            </div>
-
-          </a>
+            </a>
+          </div>
+          <div class="col-md-8 about-description">
+            <p>{% trans "<strong>Cultural Geographies</strong> is aimed to raise a sense of local identity and enhance cultural diversity, creating urban and regional narratives through participatory cultural activities.Working with local communities and we are trying to develop their potential and reconnect people with city spaces. Our primary focus is participatory urban practices, art interventions, and research on the cities, histories and urban spaces. " %} </p>
+          </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="col-md-4">
+            <a href="{% url 'cgapp:projects' %}" class="portfolio-box about-logo">
+              <img class="img-responsive img-border-left img-about heading-align" src="{% static 'cgapp/img/chg_logo.png' %}" alt="logo of children geographies">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded about">
+                    {% trans "Our projects!" %}
+                  </div>
+                </div>
+              </div>
 
-        <div class="col-md-12 about">
-          <p class="preformatted"> {% trans "<strong>Children's geographies</strong> an initiative aimed at rethinking the city from child’s perspective, created in 2015 and based mostly in Kyiv, Ukraine. Since then, we are aimed to establish a feeling of presence and involvement of children in the city processes through art, research, and educational practices." %}
-          </p>
-          <p>{% trans "What we do:" %}          
-          <ul>
-            <li> {% trans "share suссessful practices of child-friendly spaces with a broad audience" %} </li>
-            <li> {% trans "build an understanding and basic knowledge of city planning and architecture for children" %} </li>
-            <li> {% trans "engage a young audience to the processes of discussion and transformation of the city" %} </li>
-            <li> {% trans "through arts and play, encourage children to understand their own possibilities to influence and change the city" %} </li>
-            <li> {% trans "draw attention to rights and needs of children in society and the city." %} </li>
+            </a>
+          </div>
+
+          <div class="col-md-8 ">
+            <p class="about-description preformatted"> {% trans "<strong>Children's geographies</strong> is our initiative that attempts to establish a feeling of presence and involvement of children and youth in the city processes through cross-disciplinary educational, research and artistic practices. Our projects in this area include the cooperation with other cultural and educational institutions, NGOs, city councils, museums, and film festivals. Since 2015, Children's Geographies created projects and participated in the events in a number of Ukrainian cities and abroad." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center">{% trans "What we do:" %}          
+          <ul class="about-list">
+            <li> {% trans "Engage a young audience to the discussion of the transformation of the city;" %} </li>
+            <li> {% trans "Empower children and youth with necessary tools for the participation in the decision-making processes in the city;" %} </li>
+            <li> {% trans "Build an understanding and basic knowledge of city planning and architecture for children and youth." %} </li>
           </ul>
           </p>
         </div>
       </div>
-      <div class="col-lg-6 col-md-6">
-        <div class="col-md-12">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
           <hr>
-          <h2 class="intro-text text-center">
-            <strong>{% trans "The Development of Territories" %}</strong>
+          <h2 class="intro-text text-center"> 
+            <strong>{% trans "Contacts" %}</strong>
           </h2>
           <hr>
         </div>
-  <div class="col-md-12">
-          <a href="{% url 'cgapp:projects' %}" class="portfolio-box">
-            <img class="img-responsive img-border-left img-about" src="{% static 'cgapp/img/cg_logo.jpg' %}" alt="logo of cultural geographies">
-            <div class="portfolio-box-caption green">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded about">
-                  {% trans "Check out our projects!" %}
-                </div>
-              </div>
-            </div>
-
-          </a>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> childrensgeo@gmail.com  
+          </p>  
         </div>
-        <div class="col-md-12 about">
-          <p>{% trans "Work in <strong>Development of Territories and Spaces</strong> is aimed on conservation, restoration and revitalization processes of public spaces, ensuring close cooperation between communities within cities, promoting equitable access to representatives of various groups in public spaces." %} </p>
+        <div class="col-md-12 text-center">
+          <div class="social-facebook sr-icons" >
+            <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
+          </div>
+          <!--
+        <div class="col-md-12 text-center">
+          <p>
+          <a href="https://www.facebook.com/childrensgeographies/" target="_blank" class="unstyled">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i> /childrensgeographies
+          </a>
+          </p>
+-->
         </div>
       </div>
+
+      <!--
+      <hr>
       <div class="row">
         <div class="col-md-12 text-center">
           <p> {% trans "To reach the goals, we provide the workshops and researching programs using different media, often in cooperation with our partners - museums, festivals, foundations, and galleries." %} </p>
@@ -100,7 +122,8 @@
           </h2>
         </div>
       </div>
-
+-->
+<!--
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="social-facebook sr-icons" >
@@ -109,7 +132,7 @@
 
         </div>
       </div>
-
+-->
 
 
       <div class="clearfix"></div>

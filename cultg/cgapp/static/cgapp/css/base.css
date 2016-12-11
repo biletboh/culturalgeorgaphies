@@ -35,6 +35,15 @@ hr {
   max-width: 400px;
   border-color: #999999;
 }
+
+a {
+  color: rgb(0,0,0);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: rgba(0,0,0,0.7);
+  text-decoration: none;
+}
 .address-bar > a {
   color: rgb(255,255,255);
   text-decoration: none;
@@ -353,12 +362,21 @@ footer p {
   height: 400px; 
   margin: auto;
 }
-.about {
-  margin-top: 20px;
+.about-description {
+  margin-top: 35px
+}
+.about-logo {
+  max-width: 250px;
 }
 .img-about {
   margin: auto;
 }
+.about-list {
+  font-size: 12pt;
+  line-height: 1.6;
+  color: #000;
+}
+
 /* Responsive desing */
 
 @media screen and (max-width:768px) {
@@ -434,7 +452,10 @@ footer p {
   .intro-text {
     font-size: 14pt;
   }
-  
+  .about {
+    margin-top: 15px;
+  }
+
   .post, .description {
     margin: 10px 0;
     font-size: 11pt;
@@ -471,9 +492,6 @@ footer p {
   }
   .img-border-left {
     margin-top: 5px;
-  }
-  .heading-align {
-    margin-top: 25px;
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 12pt;

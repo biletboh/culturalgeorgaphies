@@ -8,75 +8,128 @@
 
   <div class="row">
     <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center"> 
-          <strong>{% trans "About" %}</strong>
-        </h2>
-        <hr>
-      </div>
-      <div class="col-md-6">
-        <img class="img-responsive img-border-left" src="http://placekitten.com/g/400/300" alt="">
-      </div>
-      <div class="col-md-6">
-        <p>{% trans "Description" %}</p>
-        <p>This is a great place to introduce your company or project and describe what you do.</p>
-        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="box">
-      <div class="col-lg-6 col-md-6">
+      <div class="row">
         <div class="col-lg-12 col-md-12">
           <hr>
-          <h2 class="intro-text text-center">
-            <strong>{% trans "Geographies of Children" %}</strong>
+          <h2 class="intro-text text-center"> 
+            <strong>{% trans "About" %}</strong>
           </h2>
           <hr>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
-          <p>{% trans "Description" %} </p>
-          <p>This is a great place to introduce your company or project and describe what you do.</p>
-          <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        </div>
-        <div class="col-md-12">
-          <a href="{% url 'cgapp:projects' %}">
-            <img class="img-responsive img-border-left" src="http://placekitten.com/g/400/300" alt="">
-          </a>
+          <p>{% trans "<strong>Cultural Geographies</strong> is an non-governmental organization based in Kyiv, Ukraine, that seeks to promote the development of civil society by strengthening the impact of the cultural sector and community interaction at regional, national and international levels." %}
+          </p>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'cgapp:projects' %}" class="portfolio-box about-logo">
+            <img class="img-responsive img-border-left img-about" src="{% static 'cgapp/img/cg_logo.png' %}" alt="logo of cultural geographies">
+            <div class="portfolio-box-caption green">
+              <div class="portfolio-box-caption-content">
+                <div class="project-category text-faded about">
+                  {% trans "Our projects!" %}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-8 about-description">
+          <p>{% trans "<strong>Cultural Geographies</strong> is aimed to raise a sense of local identity and enhance cultural diversity, creating urban and regional narratives through participatory cultural activities.Working with local communities and we are trying to develop their potential and reconnect people with city spaces. Our primary focus is participatory urban practices, art interventions, and research on the cities, histories and urban spaces. " %} </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'cgapp:projects' %}" class="portfolio-box about-logo">
+            <img class="img-responsive img-border-left img-about heading-align" src="{% static 'cgapp/img/chg_logo.png' %}" alt="logo of children geographies">
+            <div class="portfolio-box-caption">
+              <div class="portfolio-box-caption-content">
+                <div class="project-category text-faded about">
+                  {% trans "Our projects!" %}
+                </div>
+              </div>
+            </div>
 
-      <div class="col-lg-6 col-md-6">
+          </a>
+        </div>
+
+        <div class="col-md-8 ">
+          <p class="about-description preformatted"> {% trans "<strong>Children's geographies</strong> is our initiative that attempts to establish a feeling of presence and involvement of children and youth in the city processes through cross-disciplinary educational, research and artistic practices. Our projects in this area include the cooperation with other cultural and educational institutions, NGOs, city councils, museums, and film festivals. Since 2015, Children's Geographies created projects and participated in the events in a number of Ukrainian cities and abroad." %}
+          </p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
+          <p class="text-center">{% trans "What we do:" %}</p> 
+          <ul>
+            <li> {% trans "Engage a young audience to the discussion of the transformation of the city;" %} </li>
+            <li> {% trans "Empower children and youth with necessary tools for the participation in the decision-making processes in the city;" %} </li>
+            <li> {% trans "Build an understanding and basic knowledge of city planning and architecture for children and youth." %} </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row hidden-xs">
+        <div class="col-lg-12 col-md-12">
           <hr>
-          <h2 class="intro-text text-center">
-            <strong>{% trans "The Development of Territories and Spaces" %}</strong>
+          <h2 class="intro-text text-center"> 
+            <strong>{% trans "Contacts" %}</strong>
           </h2>
           <hr>
         </div>
-        <div class="col-md-12">
-          <p>{% trans "Description" %} </p>
-          <p>This is a great place to introduce your company or project and describe what you do.</p>
-          <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        </div>
-        <div class="col-md-12">
-          <a href="{% url 'cgapp:projects' %}">
-            <img class="img-responsive img-border-left" src="http://placekitten.com/g/400/300" alt="">
-          </a>
-        </div>
-
       </div>
+      <div class="row hidden-xs">
+        <div class="col-md-12 text-center">
+          <p>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> childrensgeo@gmail.com  
+          </p>  
+        </div>
+        <div class="col-md-12 text-center">
+          <div class="social-facebook sr-icons" >
+            <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
+          </div>
+          <!--
+        <div class="col-md-12 text-center">
+          <p>
+          <a href="https://www.facebook.com/childrensgeographies/" target="_blank" class="unstyled">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i> /childrensgeographies
+          </a>
+          </p>
+-->
+        </div>
+      </div>
+
+      <!--
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p> {% trans "To reach the goals, we provide the workshops and researching programs using different media, often in cooperation with our partners - museums, festivals, foundations, and galleries." %} </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <hr>
+          <h2 class="intro-text text-center">
+            {% trans "Like us on Facebook!" %}
+          </h2>
+        </div>
+      </div>
+-->
+<!--
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="social-facebook sr-icons" >
+            <a href="https://www.facebook.com/childrensgeographies/" target="_blank"><i class="fa fa-facebook"></i></a>
+          </div>
+
+        </div>
+      </div>
+-->
 
       <div class="clearfix"></div>
     </div>
   </div>
-
 
 </div>
 <!-- /.container -->

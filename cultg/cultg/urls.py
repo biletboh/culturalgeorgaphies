@@ -19,12 +19,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from cgapp import views
+from filebrowser.sites import site
 
 urlpatterns = [
         url(r'^i18n/', include('django.conf.urls.i18n')),
         url(r'^upload/', include('django_file_form.urls')),
         ## check for clearup
         url(r'^tinymce/', include('tinymce.urls')),
+        url(r'^admin/filebrowser/', include(site.urls)),
+        url(r'^grappelli/', include('grappelli.urls')),
         ] + i18n_patterns(
                 url(r'^admin/', admin.site.urls),
                 url(r'^', include('cgapp.urls')),

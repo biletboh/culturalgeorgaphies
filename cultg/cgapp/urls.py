@@ -10,6 +10,7 @@ app_name='cgapp'
 urlpatterns = [
 #Public pages
         url(r'^about/$', views.About.as_view(), name = 'about'),
+        url(r'^contacts/$', views.Contacts.as_view(), name = 'contacts'),
         url(r'^$', views.Blog.as_view(), name = 'blog'),
         url(r'^post/(?P<pk>[0-9]+)/$', views.NewsPage.as_view(), name = 'news'),
         url(r'^team/$', views.Team.as_view(), name = 'team'),

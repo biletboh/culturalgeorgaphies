@@ -1,6 +1,5 @@
 {% load el_pagination_tags %}
 {% load static %}
-{% load tz %}
 {% load thumbnail %}
 {% load i18n %}
 {% load categories %}
@@ -9,15 +8,13 @@
 
 {% paginate  posts %}
 
-{% for post in posts reversed %}
+{% for post in posts %}
 <div class="col-lg-12 text-center">
 
   <img class="img-responsive blog-image" src="{{ post.image.large.url }}" alt="{{ post.image.name }}">
   <h2>{{ post.name }}
     <br>
-    {% timezone "Europe/Kiev" %}
     <small>{{ post.pub_date }}</small>
-    {% endtimezone %}
   </h2>
   <div class="dot-ellipsis dot-height-90 text-left">{{ post.body|safe }}</div>
   <a href="{% url 'cgapp:news' post.id %}" class="btn btn-default btn-lg btn-responsive">{% trans "Read More" %}</a>

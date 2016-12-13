@@ -36,15 +36,19 @@ THUMBNAIL_ALIASES = {
         'extra_small': {'size':(45, 45), 'crop': True},
         'small': {'size':(60, 60), 'crop': True},
         'medium': {'size': (750, 450), 'crop': True},
-        'large': {'size': (1000, 450), 'crop': True},
+        'large': {'size': (800, 550), 'crop': True},
         'extra_large': {'size': (1200, 600), 'crop': True},
         },
-}
+    }
+THUMBNAIL_TRANSPARENCY_EXTENSION = 'png'
 
 # Application definition
 
 INSTALLED_APPS = [
     'cgapp.apps.CgappConfig',
+    'grappelli',
+    'filebrowser',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,8 +59,8 @@ INSTALLED_APPS = [
     'django_file_form',
     'django_file_form.ajaxuploader',
     'widget_tweaks',
-    'tinymce',
     'el_pagination',
+    'datetimewidget',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +89,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
-        },
+                ]
+            },
     },
 ]
 
@@ -208,7 +212,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 #TinyMCE config
-TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_JS_URL = STATIC_URL + 'tiny_mce/tiny_mce.js' 
 TINYMCE_DEFAULT_CONFIG = {
         'plugins': "table,spellchecker,paste,searchreplace",
         'theme': "advanced",
@@ -216,6 +220,7 @@ TINYMCE_DEFAULT_CONFIG = {
         'custom_undo_redo_levels': 10,
         }
 TINYMCE_SPELLCHECKER = True
-TINYMCE_COMPRESSOR = True
+TINYMCE_COMPRESSOR = False 
+TINYMCE_FILEBROWSER = True 
 
 LOGIN_REDIRECT_URL = '/dashboard/news/add/'

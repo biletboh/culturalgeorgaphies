@@ -50,7 +50,8 @@ class MemberForm(FileFormMixin, betterforms.BetterForm):
 # Form for creations of Projects
 
 ### Categories for projets 
-CATEGORIES = (("Children's geographies", _("Children's geographies")), ('Development of territories', _('Development of territories')))
+CATEGORIES = (("Children's Geographies", _("Children's Geographies")), 
+    ('Cultural Geographies', _('Cultural Geographies')))
 
 class ProjectForm(FileFormMixin, betterforms.BetterForm):
     name = forms.CharField(label=_("name"), max_length=200)

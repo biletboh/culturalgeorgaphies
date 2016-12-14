@@ -22,7 +22,7 @@
           <a href ="{% url 'cgapp:project-page' project.id %}" class="portfolio-box">
             <img class="img-responsive" src="{{ project.image.medium.url }}" alt="{{ project.image.name }}">
             <div class="portfolio-box-caption 
-              {% if project.category == "Development of territories" %} green {% endif %}">
+              {% if project.category == "Cultural Geographies" %} green {% endif %}">
               <div class="portfolio-box-caption-content">
                 <div class="project-name">
                   {{ project.name }}

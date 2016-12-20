@@ -7,7 +7,7 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load object_attributes %}
-{% load choices %}
+{% load default_values %}
 {% load i18n %}
 {% load tz %}
 
@@ -49,13 +49,33 @@
           </div>
           <div class="col-md-10">
             {% if fieldset.name == "main" %}
+            <!-- default languages and dates -->
+            {% if field.name == "language" %}
+            {% with object.language as lang %}
+            {% render_field field|default_choice:lang class+="form-control" %}
+            {% endwith %}
+            {% elif field.name == "pub_date" %}
+            {% with object.pub_date as pub_date %}
+            {% render_field field|default_value:pub_date class+="form-control" %}
+            {% endwith %}
+            {% else %}
             {% with object|object_attributes:field as val %}
             {% render_field field class+="form-control" value=val %}
             {% endwith %}
+            {% endif %}
+
+            <!-- default values for TinyMce -->
             {% elif fieldset.name == "text-area" %}
-            {% with object.description as text %}
-            {% render_field field|default_textarea:text class+="form-control mceEditor" %}
+            {% if field.name == "body" %}
+            {% with object.body as text %}
+            {% render_field field|default_value:text class+="form-control mceEditor" %}
             {% endwith %}
+            {% else %}
+            {% with object.description as text %}
+            {% render_field field|default_value:text class+="form-control mceEditor" %}
+            {% endwith %}
+            {% endif %}
+
             {% else %}
             {{ field }}
             {% endif %}

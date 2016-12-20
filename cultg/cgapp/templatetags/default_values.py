@@ -15,7 +15,8 @@ def default_choice(field, choice):
     return field
 
 @register.filter
-def default_textarea(field, value):
+def default_value(field, value):
     if value:
         field.field.initial= value
     return field
+

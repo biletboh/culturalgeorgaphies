@@ -212,14 +212,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 #TinyMCE config
-TINYMCE_JS_URL = STATIC_URL + 'tiny_mce/tiny_mce.js' 
+TINYMCE_JS_URL = '/static/tiny_mce/tiny_mce.js'
+TINYMCE_JS_ROOT = '/static/tiny_mce'
+
+TINYMCE_SPELLCHECKER = True
 TINYMCE_DEFAULT_CONFIG = {
-        'plugins': "table,spellchecker,paste,searchreplace",
+        'plugins': 'advlist,autolink,autosave,emotions,fullpage,fullscreen,media,table,spellchecker,paste,searchreplace,wordcount',
         'theme': "advanced",
+        'theme_advanced_buttons1': 'undo,redo,|,fontselect,fontsizeselect,|,bold,italic,underline,strikethrough,|,forecolor,backcolor,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,',
+        'theme_advanced_buttons2' : "link,unlink,|,image,media,|,emotions,|,blockquote,|,table,|,hr,sub,sup,|,charmap",
         'cleanup_on_startup': True,
         'custom_undo_redo_levels': 10,
         }
-TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = False 
 TINYMCE_FILEBROWSER = True 
 

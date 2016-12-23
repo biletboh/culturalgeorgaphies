@@ -44,6 +44,10 @@ a:hover, a:focus {
   color: rgba(0,0,0,0.7);
   text-decoration: none;
 }
+img {
+  width: 100%;
+  height: auto;
+}
 .address-bar > a {
   color: rgb(255,255,255);
   text-decoration: none;
@@ -386,6 +390,10 @@ footer p {
   }
   h2 small {
     font-size: 80%;
+  }
+  iframe {
+    width: 100%;
+    height: auto;
   }
   .box {
     padding: 10px;

@@ -506,7 +506,7 @@ footer p {
   }
 }
 
-@media (max-width : 1200px) {
+@media (max-width: 1200px) {
   .languages {
     position: absolute;
     top: 10px;

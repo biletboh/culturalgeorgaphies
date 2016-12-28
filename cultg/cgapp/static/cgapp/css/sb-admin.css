@@ -287,3 +287,74 @@ ul.alert-dropdown {
 .message-top ul {
   list-style: none;
 }
+
+/* Custom responsive design */
+
+/* TinyMce */
+
+@media screen and (max-width:479px) {
+  .mceToolbar td {
+    display: table-row;
+    float: left;
+  }
+  .mceToolbar td:nth-of-type(11n) {
+    clear: left;
+  }
+table.mceLayout, textarea.tinymce {
+    height: 500px;
+  }
+  .mceLayout iframe {
+    height: 400px !important;
+  }  
+}
+
+@media (min-width: 480px) and (max-width:768px) {
+  .mceToolbar td {
+    display: table-row;
+    float: left;
+  }
+  .mceToolbar td:nth-of-type(16n) {
+    clear: left;
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  .mceToolbar td {
+    display: table-row;
+    float: left;
+  }
+  .mceToolbar td:nth-of-type(19) {
+    clear: left;
+  }
+table.mceLayout, textarea.tinymce {
+    height: 500px;
+  }
+  .mceLayout iframe {
+    height: 400px !important;
+  }  
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .mceToolbar td {
+    display: table-row;
+    float: left;
+  }
+  .mceToolbar td:nth-of-type(24n) {
+    clear: left;
+  }
+  .mceLayout iframe {
+    height: 500px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .mceToolbar td {
+    display: table-row;
+    float: left;
+  }
+  .mceToolbar td:nth-of-type(30n) {
+    clear: left;
+  }
+  .mceLayout iframe {
+    height: 600px !important;
+  }
+}

@@ -1,6 +1,9 @@
 {% load staticfiles %}
 {% load i18n %}
 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,9 +63,22 @@ editor.on('init', function () {
 </head>
 
 <body>
+<div class="languages">
+  <form action="{% url "set_language" %}" id="lang-form" method="post">
+    {% csrf_token %}
+    <select name="language" id="language" class="" hidden>
+      {% get_language_info_list for LANGUAGES as langs %}
+      {% for lang in langs %}
+      <option value="{{ lang.code }}"
+      {% if lang.code == LANGUAGE_CODE %}selected="selected"{% endif %}>
+      {{ lang.name_local }}
+      </option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
 
 <div id="wrapper">
-
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,7 +90,13 @@ editor.on('init', function () {
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{% url 'cgapp:create-news' %}">{% trans "Admin" %}</a>
+
     </div>
+    <div class="languages hidden-xs">
+      <button class="btn btn-default" id="en" value="en" type="button">EN</button>
+      <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
+    </div>
+
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul id="side-nav" class="nav navbar-nav side-nav">
@@ -106,6 +128,11 @@ editor.on('init', function () {
         <a href="{% url 'cgapp:logout' %}"><i class="fa fa-fw fa-power-off"></i>{% trans "Log Out" %}</a>
         </li>
       </ul>
+      <div class="nav nav-lang hidden-sm hidden-md hidden-lg text-right">
+        <button class="btn btn-default" id="en" value="en" type="button">EN</button>
+        <button class="btn btn-default" id="uk" value="uk" type="button">UA</button>
+      </div>
+
     </div>
     <!-- /.navbar-collapse -->
   </nav>
@@ -133,6 +160,18 @@ function setSelectedPageNav() {
   } 
 }
 setSelectedPageNav();
+</script>
+<!-- Script to place language buttons -->
+
+<script>
+$(function(){
+    $("#en,#uk").click(function() {
+      var language = this.value;
+      console.log(language);
+      $("#language").val(language);
+      $("#lang-form").submit();
+      });
+    });
 </script>
 
 <!-- /#wrapper -->

@@ -290,6 +290,50 @@ ul.alert-dropdown {
 
 /* Custom responsive design */
 
+/* Languages */
+
+.languages {
+  float: right;
+  height: 50px;
+  font-size: 12pt;
+  line-height: 20px;
+}
+.languages .btn {
+  color: #9d9d9d;
+  background-color: #222;
+  border-color: #222;
+  border: none;
+  padding: 15px !important;
+}
+
+.languages .btn:hover {
+  background-color: #000;
+}
+
+.nav-lang {
+  background-color: rgba(0,0,0,0.2);
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-right: 15px;
+}
+
+.nav-lang .btn {
+  font-size: 8pt;
+  padding: 2px 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0;
+  color: #9d9d9d;
+  border-color: #9d9d9d;
+  background-color: #222;
+  letter-spacing: 3px;
+}
+.nav-lang .btn:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 /* TinyMce */
 
 @media screen and (max-width:479px) {
@@ -300,8 +344,8 @@ ul.alert-dropdown {
   .mceToolbar td:nth-of-type(11n) {
     clear: left;
   }
-table.mceLayout, textarea.tinymce {
-    height: 500px;
+  table.mceLayout, textarea.tinymce {
+    height: 400px;
   }
   .mceLayout iframe {
     height: 400px !important;
@@ -313,8 +357,14 @@ table.mceLayout, textarea.tinymce {
     display: table-row;
     float: left;
   }
-  .mceToolbar td:nth-of-type(16n) {
+  .mceToolbar td:nth-of-type(22n+19) {
     clear: left;
+  }
+  table.mceLayout, textarea.tinymce {
+    height: 400px;
+  }
+  .mceLayout iframe {
+    height: 400px !important;
   }
 }
 @media (min-width: 769px) and (max-width: 992px) {
@@ -322,24 +372,27 @@ table.mceLayout, textarea.tinymce {
     display: table-row;
     float: left;
   }
-  .mceToolbar td:nth-of-type(19) {
+  .mceToolbar td:nth-of-type(22n+19) {
     clear: left;
   }
 table.mceLayout, textarea.tinymce {
-    height: 500px;
+    height: 450px;
   }
   .mceLayout iframe {
     height: 400px !important;
   }  
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .mceToolbar td {
     display: table-row;
     float: left;
   }
-  .mceToolbar td:nth-of-type(24n) {
+  .mceToolbar td:nth-of-type(22n+19) {
     clear: left;
+  }
+  table.mceLayout, textarea.tinymce {
+    height: 500px;
   }
   .mceLayout iframe {
     height: 500px !important;
@@ -353,6 +406,9 @@ table.mceLayout, textarea.tinymce {
   }
   .mceToolbar td:nth-of-type(30n) {
     clear: left;
+  }
+  table.mceLayout, textarea.tinymce {
+    height: 600px;
   }
   .mceLayout iframe {
     height: 600px !important;

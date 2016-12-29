@@ -221,7 +221,7 @@ TINYMCE_DEFAULT_CONFIG = {
         'theme': "advanced",
         'theme_advanced_resizing': True,
         'theme_advanced_resize_horizontal': True,
-        'theme_advanced_buttons1': 'undo,redo,|,fontselect,fontsizeselect,|,bold,italic,underline,strikethrough,|,forecolor,backcolor,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,|,link,unlink,|,image,media,|,emotions,|,blockquote,|,table,|,hr,sub,sup,|,charmap',
+        'theme_advanced_buttons1': 'undo,redo,fontselect,fontsizeselect,bold,italic,underline,strikethrough,|,forecolor,backcolor,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,|,link,unlink,|,image,media,|,emotions,blockquote,|,table,hr,sub,sup,charmap',
         'theme_advanced_buttons2' : "",
         'width': '100%',
         'cleanup_on_startup': True,

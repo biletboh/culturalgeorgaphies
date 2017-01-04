@@ -8,7 +8,7 @@ from django.utils import timezone
 from datetimewidget.widgets import DateTimeWidget
 
 ## Language choices 
-LANGUAGES = (('English', 'English'), ('Українська', 'Українська'))
+LANGUAGES = (('en', 'English'), ('uk', 'Українська'))
 
 # Form for creation of News 
 class NewsForm(FileFormMixin, betterforms.BetterForm):

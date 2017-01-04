@@ -29,13 +29,16 @@ class Blog(AjaxListView):
     context_object_name = "posts"
     template_name = 'cgapp/blog.html'
     page_template = 'cgapp/post_list.html'
+
     def get_context_data(self, **kwargs):
         context = super(Blog, self).get_context_data(**kwargs)
         context['partners'] = Partner.objects.all()
         return context
     def get_queryset(self):
-        return News.objects.all()
-
+        if self.request.LANGUAGE_CODE == 'en':
+            return News.objects.filter(language='en')
+        else:
+            return News.objects.filter(language='uk')
 #News page
 class NewsPage(DetailView):
     model = News

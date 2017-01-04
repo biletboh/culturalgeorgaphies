@@ -10,8 +10,8 @@ def in_category(things, category):
 @register.filter
 def language(things, language_code):
     if language_code == "en":
-        language = "English"
+        language = "en"
     else:
-        language = "Українська"
+        language = "uk"
     fl_list = things.all().filter(language=language)
     return fl_list 

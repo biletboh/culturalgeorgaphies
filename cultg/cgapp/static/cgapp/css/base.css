@@ -305,7 +305,15 @@ footer p {
   margin: auto;
 }
 .post {
-  margin: 30px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 695px;
+}
+.post a {
+  color: #337ab7;
+}
+.post a:hover {
+  color: #23527c;
 }
 
 .social-facebook {
@@ -367,7 +375,7 @@ footer p {
   margin: auto;
 }
 .about-description {
-  margin-top: 35px
+  margin-top: 15px
 }
 .about-logo {
   max-width: 250px;

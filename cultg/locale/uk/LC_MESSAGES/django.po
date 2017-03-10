@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 17:52+0200\n"
+"POT-Creation-Date: 2017-03-10 16:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: cgapp/forms.py:15 cgapp/forms.py:33 cgapp/forms.py:57 cgapp/forms.py:75
+msgid "name"
+msgstr "назва"
+
+#: cgapp/forms.py:16 cgapp/forms.py:35 cgapp/forms.py:59
+msgid "language"
+msgstr "мова"
+
+#: cgapp/forms.py:17 cgapp/forms.py:36 cgapp/forms.py:60
+msgid "publication date"
+msgstr "дата публікації"
+
+#: cgapp/forms.py:18
+msgid "body"
+msgstr "текст"
+
+#: cgapp/forms.py:19 cgapp/forms.py:38 cgapp/forms.py:62 cgapp/forms.py:76
+msgid "image"
+msgstr "світлина"
+
+#: cgapp/forms.py:34
+msgid "position"
+msgstr "посада"
+
+#: cgapp/forms.py:37 cgapp/forms.py:61
+msgid "description"
+msgstr "oпис"
+
+#: cgapp/forms.py:53
+msgid "Children's Geographies"
+msgstr "Дитячі географії"
+
+#: cgapp/forms.py:54 cgapp/templates/cgapp/base.html:19
+#: cgapp/templates/cgapp/base.html:76 cgapp/templates/cgapp/base.html:96
+msgid "Cultural Geographies"
+msgstr "Культурні Географії"
+
+#: cgapp/forms.py:58
+msgid "category"
+msgstr "категорія"
 
 #: cgapp/templates/cgapp/about.html:15 cgapp/templates/cgapp/base.html:105
 msgid "About"
@@ -60,7 +101,7 @@ msgstr ""
 
 #: cgapp/templates/cgapp/about.html:59
 msgid ""
-"<strong>Children's geographies</strong> is an initiative that attempts to "
+"<strong>Children's Geographies</strong> is an initiative that attempts to "
 "establish a feeling of presence and involvement of children and youth in the "
 "city processes through cross-disciplinary educational, research and artistic "
 "practices."
@@ -77,10 +118,10 @@ msgid ""
 "Since 2015 Children's Geographies has taken part in a variety of events in "
 "both a number of Ukrainian cities and abroad."
 msgstr ""
-"Реалізуючи проекти у цьому напрямі, ми "
-"співпрацюємо з культурними та освітніми установами, громадськими "
-"організаціями, муніципалітетами, музеями та фестивалями по всій Україні, "
-"налагоджуючи співпрацю і з іноземними партнерами."
+"Реалізуючи проекти у цьому напрямі, ми співпрацюємо з культурними та "
+"освітніми установами, громадськими організаціями, муніципалітетами, музеями "
+"та фестивалями по всій Україні, налагоджуючи співпрацю і з іноземними "
+"партнерами."
 
 #: cgapp/templates/cgapp/about.html:67
 msgid "What we do:"
@@ -116,21 +157,9 @@ msgstr ""
 msgid "Contacts"
 msgstr "Контакти"
 
-#: cgapp/templates/cgapp/about.html:108
-msgid ""
-"To reach the goals, we provide the workshops and researching programs using "
-"different media, often in cooperation with our partners - museums, "
-"festivals, foundations, and galleries."
-msgstr ""
-
 #: cgapp/templates/cgapp/about.html:116
 msgid "Like us on Facebook!"
 msgstr ""
-
-#: cgapp/templates/cgapp/base.html:19 cgapp/templates/cgapp/base.html:76
-#: cgapp/templates/cgapp/base.html:96
-msgid "Cultural Geographies"
-msgstr "Культурні Географії"
 
 #: cgapp/templates/cgapp/base.html:102
 msgid "Blog"
@@ -141,6 +170,7 @@ msgid "Team"
 msgstr "Команда"
 
 #: cgapp/templates/cgapp/base.html:111 cgapp/templates/cgapp/projects.html:15
+#: cgapp/views.py:292 cgapp/views.py:304 cgapp/views.py:321
 msgid "Projects"
 msgstr "Проекти"
 
@@ -157,12 +187,6 @@ msgid "blog"
 msgstr "блог"
 
 #: cgapp/templates/cgapp/create.html:13
-#: venv/lib/python3.4/site-packages/grappelli/dashboard/templates/grappelli/dashboard/modules/app_list.html:19
-#: venv/lib/python3.4/site-packages/grappelli/dashboard/templates/grappelli/dashboard/modules/model_list.html:9
-#: venv/lib/python3.4/site-packages/grappelli/templates/admin/app_index.html:30
-#: venv/lib/python3.4/site-packages/grappelli/templates/admin/change_form.html:159
-#: venv/lib/python3.4/site-packages/grappelli/templates/admin/index.html:45
-#: venv/lib/python3.4/site-packages/grappelli/templates/related_widget_wrapper.html:18
 msgid "Add"
 msgstr "Додати"
 
@@ -223,9 +247,6 @@ msgid "Login Dashboard"
 msgstr "Увійти в адмінку"
 
 #: cgapp/templates/cgapp/login.html:37
-#: venv/lib/python3.4/site-packages/grappelli/templates/admin/login.html:26
-#: venv/lib/python3.4/site-packages/grappelli/templates/admin/login.html:67
-#: venv/lib/python3.4/site-packages/grappelli/templates/registration/password_reset_complete.html:17
 msgid "Log in"
 msgstr "Увійти"
 
@@ -245,59 +266,46 @@ msgstr "Наші"
 msgid "Our"
 msgstr "Наша"
 
-#~ msgid "name"
-#~ msgstr "назва"
+#: cgapp/views.py:111
+msgid "A post was created successfully"
+msgstr "Проект створено успішно"
 
-#~ msgid "language"
-#~ msgstr "мова"
+#: cgapp/views.py:120 cgapp/views.py:133 cgapp/views.py:150
+msgid "News"
+msgstr "Новини"
 
-#~ msgid "publication date"
-#~ msgstr "дата публікації"
+#: cgapp/views.py:156
+msgid "A post was updated successfully"
+msgstr "Публікацію оновлено успішно"
 
-#~ msgid "body"
-#~ msgstr "текст"
+#: cgapp/views.py:196
+msgid "A member was created successfully"
+msgstr "Учасника створено успішно"
 
-#~ msgid "image"
-#~ msgstr "світлина"
+#: cgapp/views.py:205 cgapp/views.py:217 cgapp/views.py:234
+msgid "Members"
+msgstr "Учасників"
 
-#~ msgid "position"
-#~ msgstr "посада"
+#: cgapp/views.py:240
+msgid "A member was updated successfully"
+msgstr "Учасника оновлено успішно"
 
-#~ msgid "description"
-#~ msgstr "oпис"
+#: cgapp/views.py:282
+msgid "A project was created successfully"
+msgstr "Проект створено успішно"
 
-#~ msgid "Children's Geographies"
-#~ msgstr "Дитячі географії"
+#: cgapp/views.py:327
+msgid "A project was updated successfully"
+msgstr "Проект оновлено успішно"
 
-#~ msgid "category"
-#~ msgstr "категорія"
+#: cgapp/views.py:369
+msgid "A partner was created successfully"
+msgstr "Партнера створено успішно"
 
-#~ msgid "News"
-#~ msgstr "Новини"
+#: cgapp/views.py:377 cgapp/views.py:390 cgapp/views.py:406
+msgid "Partners"
+msgstr "Партнерів"
 
-#~ msgid "A post was updated successfully"
-#~ msgstr "Публікацію оновлено успішно"
-
-#~ msgid "A member was created successfully"
-#~ msgstr "Учасника створено успішно"
-
-#~ msgid "Members"
-#~ msgstr "Учасників"
-
-#~ msgid "A member was updated successfully"
-#~ msgstr "Учасника оновлено успішно"
-
-#~ msgid "A project was created successfully"
-#~ msgstr "Проект створено успішно"
-
-#~ msgid "A project was updated successfully"
-#~ msgstr "Проект оновлено успішно"
-
-#~ msgid "A partner was created successfully"
-#~ msgstr "Партнера створено успішно"
-
-#~ msgid "Partners"
-#~ msgstr "Партнерів"
-
-#~ msgid "A partner was updated successfully"
-#~ msgstr "Партнера оновлено успішно"
+#: cgapp/views.py:412
+msgid "A partner was updated successfully"
+msgstr "Партнера оновлено успішно"

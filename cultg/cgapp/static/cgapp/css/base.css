@@ -45,7 +45,6 @@ a:hover, a:focus {
   text-decoration: none;
 }
 img {
-  width: 100%;
   height: auto;
 }
 .address-bar > a {
@@ -303,6 +302,7 @@ footer p {
 
 .blog-image {
   margin: auto;
+  max-height: 550px;
 }
 .post {
   margin-left: auto !important;

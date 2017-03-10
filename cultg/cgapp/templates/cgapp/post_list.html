@@ -14,7 +14,7 @@
     <br>
     <small>{{ post.pub_date }}</small>
   </h2>
-  <div class="dot-post dot-ellipsis dot-height-90 text-left">{{ post.body|safe }}</div>
+  <div class="dot-post dot-ellipsis dot-height-90 text-left post">{{ post.body|safe }}</div>
   <a href="{% url 'cgapp:news' post.id %}" class="btn btn-default btn-lg btn-responsive">{% trans "Read More" %}</a>
   <hr>
 </div>

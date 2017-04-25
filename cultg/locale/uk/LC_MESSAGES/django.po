@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 16:37+0200\n"
+"POT-Creation-Date: 2017-04-25 08:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgid "Children's Geographies"
 msgstr "Дитячі географії"
 
 #: cgapp/forms.py:54 cgapp/templates/cgapp/base.html:19
-#: cgapp/templates/cgapp/base.html:76 cgapp/templates/cgapp/base.html:96
+#: cgapp/templates/cgapp/base.html:77 cgapp/templates/cgapp/base.html:97
 msgid "Cultural Geographies"
 msgstr "Культурні Географії"
 
@@ -60,7 +60,7 @@ msgstr "Культурні Географії"
 msgid "category"
 msgstr "категорія"
 
-#: cgapp/templates/cgapp/about.html:15 cgapp/templates/cgapp/base.html:105
+#: cgapp/templates/cgapp/about.html:15 cgapp/templates/cgapp/base.html:106
 msgid "About"
 msgstr "Про Нас"
 
@@ -152,33 +152,38 @@ msgstr ""
 "базове розуміння процесів міського планування та принципів міської "
 "архітектури."
 
-#: cgapp/templates/cgapp/about.html:79 cgapp/templates/cgapp/base.html:114
+#: cgapp/templates/cgapp/about.html:79 cgapp/templates/cgapp/base.html:115
 #: cgapp/templates/cgapp/contacts.html:15
 msgid "Contacts"
 msgstr "Контакти"
 
-#: cgapp/templates/cgapp/about.html:116
-msgid "Like us on Facebook!"
-msgstr ""
+#: cgapp/templates/cgapp/base.html:16
+msgid ""
+"Cultural Geographies is a non-governmental organization that works with "
+"local communities trying to develop their potential by reconnecting people "
+"with city spaces."
+msgstr "Культурні Географії - це громадська організація, яка створює умови "
+"для розвитку суспільного потенціалу та посилення взємодії між людьми та "
+"міськими просторами через різноманітні учасницькі ініціативи та практики."
 
-#: cgapp/templates/cgapp/base.html:102
+#: cgapp/templates/cgapp/base.html:103
 msgid "Blog"
 msgstr "Блог"
 
-#: cgapp/templates/cgapp/base.html:108 cgapp/templates/cgapp/team.html:16
+#: cgapp/templates/cgapp/base.html:109 cgapp/templates/cgapp/team.html:16
 msgid "Team"
 msgstr "Команда"
 
-#: cgapp/templates/cgapp/base.html:111 cgapp/templates/cgapp/projects.html:15
+#: cgapp/templates/cgapp/base.html:112 cgapp/templates/cgapp/projects.html:15
 #: cgapp/views.py:292 cgapp/views.py:304 cgapp/views.py:321
 msgid "Projects"
 msgstr "Проекти"
 
-#: cgapp/templates/cgapp/base.html:133
+#: cgapp/templates/cgapp/base.html:137
 msgid "Our Partners"
 msgstr "Наші партнери"
 
-#: cgapp/templates/cgapp/base.html:155
+#: cgapp/templates/cgapp/base.html:159
 msgid "Made by"
 msgstr "Зроблено"
 

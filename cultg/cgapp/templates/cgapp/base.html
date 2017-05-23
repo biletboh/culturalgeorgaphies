@@ -130,6 +130,7 @@
 {% block content %}{% endblock %}
 
 <!-- Footer -->
+{% if partners %}
 <footer class="footer-partners">
   <div class="container">
     <div class="row">
@@ -150,13 +151,14 @@
     </div>
   </div>
 </footer>
+{% endif %}
 
 <footer>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 text-right">
         <div class="copyright">
-          {% trans "Made by" %} #bb 2016
+          {% trans "Made by" %} <a href="https://github.com/biletboh" target="_blank">#bb</a> 2016
         </div>
       </div>
     </div>
